@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    tools:context=".fragments.About">
+
+    <TextView
+        android:id="@+id/tv_about_maemes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp" />
+
+    <TextView
+        android:id="@+id/tv_av_p_one"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="@string/app_slogan"
+        android:textAlignment="gravity"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+    <TextView
+        android:id="@+id/tv_av_p_two"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="@string/app_slogan"
+        android:textAlignment="gravity"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+    <TextView
+        android:id="@+id/tv_av_p_three"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="We ensure that you can have access to delicious takeaway deals every day, 7 days a week!"
+        android:textAlignment="gravity"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+    <TextView
+        android:id="@+id/tv_about_contact_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Contact Information"
+        android:textAlignment="gravity"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"  />
+    <TextView
+        android:id="@+id/tv_about_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:textStyle="bold"
+        android:text="@string/app_slogan"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:gravity="center_horizontal" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:id="@+id/tv_about_telephone_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telephone:"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+        <TextView
+
+            android:id="@+id/maemes_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/app_slogan"
+            android:textStyle="bold"
+            android:textAlignment="gravity"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</LinearLayout>
