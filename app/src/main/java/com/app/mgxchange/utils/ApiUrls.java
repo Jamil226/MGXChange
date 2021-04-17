@@ -13,5 +13,7 @@ public class ApiUrls {
     //Components
     public static String RegisterUser = BaseURL + "registration.php";
     public static String LoginUser = BaseURL + "login.php";
-
+    public static String SubmitComplain = BaseURL + "add-complain.php";
+    public static String SeeComplainList = BaseURL + "complain-list.php";
+    public static String SubmitProduct = BaseURL + "login.php";
 }

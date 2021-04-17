@@ -1,4 +1,4 @@
-package com.app.mgxchange;
+package com.app.mgxchange.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,20 +7,25 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PrivacyPolicy extends AppCompatActivity {
+import com.app.mgxchange.R;
 
-    private ImageView btnBack;
+public class ItemsList extends AppCompatActivity {
+    ImageView back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_privacy_policy);
-        btnBack = findViewById(R.id.img_btn_back);
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_items_list);
+        back = findViewById(R.id.img_btn_back_items_list);
+
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), Dashboard.class);
                 startActivity(i);
             }
         });
+
+
     }
 }

@@ -1,4 +1,4 @@
-package com.app.mgxchange;
+package com.app.mgxchange.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -11,7 +11,6 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,16 +25,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.app.mgxchange.R;
 import com.app.mgxchange.utils.ApiUrls;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import es.dmoral.toasty.Toasty;
 
 
 public class UserLogin extends AppCompatActivity {
@@ -129,6 +125,7 @@ public class UserLogin extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
                         SharedPreferences preferences = getSharedPreferences("userData", MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("user_id", id);
                         editor.putString("email", emailAddress);
                         editor.putString("firstName", firstName);
                         editor.putString("lastName", lastName);
@@ -138,15 +135,11 @@ public class UserLogin extends AppCompatActivity {
                         finish();
                         Intent intent = new Intent(getApplicationContext(), Dashboard.class);
                         startActivity(intent);
-                    } else if (loginStatus.equals("0")) {
+                    } else {
                         Toast.makeText(UserLogin.this,
                                 "Email or Password Incorrect",
                                 Toast.LENGTH_LONG).show();
 
-                    } else {
-                        Toast.makeText(UserLogin.this,
-                                "Server is not Responding",
-                                Toast.LENGTH_LONG).show();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -178,7 +171,7 @@ public class UserLogin extends AppCompatActivity {
                 10000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+        RequestQueue queue = Volley.newRequestQueue(UserLogin.this);
         queue.add(stringRequest);
     }
 

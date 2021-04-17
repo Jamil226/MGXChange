@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
@@ -8,36 +7,22 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
             android:title="Home" />
-
+        <item
+            android:id="@+id/nav_sell_or_loan"
+            android:icon="@drawable/sell_product"
+            android:title="@string/fragment_home_loan_or_product" />
+        <item
+            android:id="@+id/nav_track_item"
+            android:icon="@drawable/track_my_items"
+            android:title="Track My Items" />
+        <item
+            android:id="@+id/nav_user_profile"
+            android:icon="@drawable/user_profiles"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/user_logout"
+            android:title="Logout" />
     </group>
 
-    <item android:title="About Us">
-        <menu>
-            <item
-                android:id="@+id/nav_about"
-                android:icon="@drawable/ic_about"
-                android:title="About Us" />
-            <item
-                android:id="@+id/nav_support"
-                android:icon="@drawable/ic_support"
-                android:title="Support" />
-
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share App" />
-            <!--app:actionProviderClass="android.support.v7.widget.ShareActionProvider"-->
-            <!--app:showAsAction="ifRoom" -->
-        </menu>
-    </item>
-    <item android:title="Vesion 1.0.1">
-        <menu>
-            <item
-                android:id="@+id/nav_profile"
-                android:title="My Profile "
-                />
-            <!--android:icon="@drawable/ic_profile"-->
-
-        </menu>
-    </item>
 </menu>

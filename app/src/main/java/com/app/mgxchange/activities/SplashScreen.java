@@ -1,13 +1,16 @@
-package com.app.mgxchange;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
+package com.app.mgxchange.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+import com.app.mgxchange.R;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -21,21 +24,28 @@ public class SplashScreen extends AppCompatActivity {
             getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
             getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDark));
         }
-        Thread thread = new Thread()
-        {
+        Thread t = new Thread() {
             @Override
             public void run() {
                 try {
-                    sleep(2000);
-                    Intent intent=new Intent(SplashScreen.this , Welcome.class);
-                    startActivity(intent);
-                    finish();
+                    sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                } finally {
+                    // User Pref
+                    Intent intent;
+                    SharedPreferences prefPersonalUser = getSharedPreferences("userData", MODE_PRIVATE);
+                    String emailPersonalUser = prefPersonalUser.getString("email", "null");
+                    if (!emailPersonalUser.equals("null")) {
+                        intent = new Intent(SplashScreen.this, Dashboard.class);
+                    } else {
+                        intent = new Intent(SplashScreen.this, Welcome.class);
+                    }
+                    startActivity(intent);
+                    finish();
                 }
-                super.run();
             }
         };
-        thread.start();
+        t.start();
     }
 }

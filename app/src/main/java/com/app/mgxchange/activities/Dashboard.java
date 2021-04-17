@@ -1,14 +1,13 @@
-package com.app.mgxchange;
+package com.app.mgxchange.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.animation.Animation;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,18 +17,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.app.mgxchange.fragments.About;
+import com.app.mgxchange.R;
 import com.app.mgxchange.fragments.Home;
-import com.app.mgxchange.fragments.Profile;
-import com.app.mgxchange.fragments.Support;
 import com.google.android.material.navigation.NavigationView;
-
 
 public class Dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private RelativeLayout slider_layout;
     private LinearLayout order_layout, track_layout;
     Fragment fragment;
+
     FragmentTransaction fragmentTransaction;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +36,7 @@ public class Dashboard extends AppCompatActivity
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setTitle(R.string.app_name);
-        toolbar.setTitleTextColor(Color.parseColor("#064493"));
+        toolbar.setTitleTextColor(Color.WHITE);
 
         fragment = getSupportFragmentManager().findFragmentById(R.id.frame_layout_dashboard);
 
@@ -52,6 +49,7 @@ public class Dashboard extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         if(fragment==null){
             fragment = new Home();
+            setTitle("Dashboard");
             fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.add(R.id.frame_layout_dashboard,fragment);
             fragmentTransaction.commit();
@@ -100,42 +98,53 @@ public class Dashboard extends AppCompatActivity
         Fragment fragment = null;
         if (id == R.id.nav_home)
         {
-            setTitle(R.string.app_name);
+            setTitle("Dashboard");
             FragmentTransaction ft= getSupportFragmentManager ().beginTransaction ();
             ft.replace (R.id.frame_layout_dashboard, new Home());
             ft.commit ();
         }
-        else if (id == R.id.nav_profile)
+        if (id == R.id.nav_sell_or_loan)
         {
-            setTitle("Profile");
-            FragmentTransaction ft= getSupportFragmentManager ().beginTransaction ();
-            ft.replace (R.id.frame_layout_dashboard, new Profile());
-            ft.commit ();
+//            setTitle(R.string.fragment_home_loan_or_product);
+//            FragmentTransaction ft= getSupportFragmentManager ().beginTransaction ();
+//            ft.replace (R.id.frame_layout_dashboard, new Home());
+//            ft.commit ();
+            Intent intent = new Intent(getApplicationContext(), LoanOrSellSelection.class);
+            startActivity(intent);
         }
-        else if (id == R.id.nav_about)
+        else if (id == R.id.nav_user_profile)
         {
-            setTitle("About Us");
-            FragmentTransaction ft= getSupportFragmentManager ().beginTransaction ();
-            ft.replace (R.id.frame_layout_dashboard, new About());
-            ft.commit ();
+//            setTitle("Profile");
+//            FragmentTransaction ft= getSupportFragmentManager ().beginTransaction ();
+//            ft.replace (R.id.frame_layout_dashboard, new Profile());
+//            ft.commit ();
+            Intent intent = new Intent(getApplicationContext(), DetailedUserProfile.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.nav_track_item)
+        {
+//            setTitle("Track Items");
+//            FragmentTransaction ft= getSupportFragmentManager ().beginTransaction ();
+//            ft.replace (R.id.frame_layout_dashboard, new About());
+//            ft.commit ();
+            Intent intent = new Intent(getApplicationContext(), ItemsList.class);
+            startActivity(intent);
+        }
+        else if(id==R.id.nav_logout)
+        {
+            SharedPreferences preferences = getSharedPreferences("userData", MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("email", "null");
+            editor.putString("firstName", "null");
+            editor.putString("lastName", "null");
+            editor.putString("contact", "null");
+            editor.putString("address", "null");
+            editor.apply();
+            Intent intent = new Intent(getApplicationContext(), Welcome.class);
+            startActivity(intent);
+            finish();
+        }
 
-        }
-        else if (id == R.id.nav_support)
-        {
-            setTitle("Support");
-            FragmentTransaction ft= getSupportFragmentManager ().beginTransaction ();
-            ft.replace (R.id.frame_layout_dashboard, new Support());
-            ft.commit ();
-
-        }
-        else if (id == R.id.nav_share)
-        {
-            Intent sendIntent = new Intent();
-            sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, "Download Application here: https://play.google.com/store/apps/details?id=com.app.mgxchange");
-            sendIntent.setType("text/plain");
-            startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.send_to)));
-        }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

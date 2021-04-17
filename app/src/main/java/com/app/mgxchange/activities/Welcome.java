@@ -1,11 +1,13 @@
-package com.app.mgxchange;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.app.mgxchange.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.app.mgxchange.R;
 
 public class Welcome extends AppCompatActivity {
     Button login, signUp;

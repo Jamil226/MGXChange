@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:viewBindingIgnore="true"
+    tools:context=".activities.GetLoanUsingProduct">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_product_details"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/title_toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/img_btn_back_get_loan"
+                android:fontFamily="@font/sf_regular"
+                android:text="@string/toolbar_get_loan"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/img_btn_back_get_loan"
+                android:layout_width="25dp"
+                android:layout_height="35dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/ic_back_button" />
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+    <TextView
+        android:id="@+id/tv_customer_complain_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/sf_bold"
+        android:text="@string/complain_header"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tv_customer_complain_header_below"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/sf_regular"
+        android:text="@string/text_complain_header"
+        android:textColor="@color/black"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/custom_et_all"
+                android:orientation="vertical">
+                <Spinner
+                    android:id="@+id/sp_loan_product_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:padding="4dp"
+                    android:spinnerMode="dropdown" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/et_loan_product_amount"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/custom_et_all"
+                android:fontFamily="@font/sf_regular"
+                android:hint="Required Loan Amount"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:paddingTop="8dp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_loan_product_year"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/custom_et_all"
+                android:fontFamily="@font/sf_regular"
+                android:hint="Year"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_loan_product_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/custom_et_all"
+                android:fontFamily="@font/sf_regular"
+                android:hint="Contact Number"
+                android:inputType="textShortMessage"
+                android:padding="8dp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_loan_product_details"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/custom_et_all"
+                android:fontFamily="@font/sf_regular"
+                android:hint="Product Details"
+                android:inputType="text"
+                android:padding="8dp"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/custom_et_all"
+                android:orientation="vertical">
+                <Spinner
+                    android:id="@+id/sp_loan_product_condition"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:padding="4dp"
+                    android:spinnerMode="dropdown" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_loan_product_image"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/image_default" />
+
+                <ImageView
+                    android:id="@+id/iv_loan_product_choose"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:clickable="true"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_add_a_photo"
+                    android:layout_alignParentEnd="true"
+                    android:focusable="true" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_loan_product_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/custom_btn_bg"
+                android:padding="8dp"
+                android:text="Post"
+                android:fontFamily="@font/sf_regular"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

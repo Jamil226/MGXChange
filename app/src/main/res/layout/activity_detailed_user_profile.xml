@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    tools:context=".activities.DetailedUserProfile">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_product_details"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/title_toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/img_btn_back_detailed_user_profile"
+                android:text="@string/toolbar_my_profile"
+                android:textStyle="bold"
+                android:fontFamily="@font/sf_regular"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/img_btn_back_detailed_user_profile"
+                android:layout_width="25dp"
+                android:layout_height="35dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/ic_back_button"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="20dp" />
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:elevation="2dp"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        app:civ_border="true"
+        app:civ_border_color="@color/white"
+
+        android:src="@drawable/image_default"/>
+
+        <LinearLayout
+            android:layout_marginTop="-70dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/custom_liner_layout_user_profile"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="John Maflow"
+                android:layout_marginTop="100dp"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/sf_bold"
+                android:textSize="20sp"
+                android:layout_gravity="center"/>
+            <View
+                android:layout_width="100dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/sf_regular"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="abc@yahoo.com"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/sf_regular"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/sf_regular"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+92 345 890 6587"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/sf_regular"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/sf_regular"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address Goes Here"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/sf_regular"
+                android:layout_gravity="center"/>
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Update Profile"
+                android:textAllCaps="false"
+                android:fontFamily="@font/sf_regular"
+                />
+
+        </LinearLayout>
+
+</LinearLayout>

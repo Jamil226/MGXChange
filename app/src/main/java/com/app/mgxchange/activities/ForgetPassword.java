@@ -1,4 +1,4 @@
-package com.app.mgxchange;
+package com.app.mgxchange.activities;
 
 import android.content.Intent;
 import android.os.Build;
@@ -12,19 +12,22 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.app.mgxchange.R;
+
 public class ForgetPassword extends AppCompatActivity {
     EditText email, password, confirmPassword;
     Button resetPass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_password);
-        if (Build.VERSION.SDK_INT >= 21) {
+        if (Build.VERSION.SDK_INT >= 21)
+        {
             getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
             getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDark));
         }
         initViewsForgetPassword();
-
         resetPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

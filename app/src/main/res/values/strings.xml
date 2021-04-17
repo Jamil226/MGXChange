@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">MG XChange</string>
     <string name="app_slogan">Exchange It To Cash</string>
+    <string name="loan">Loan</string>
+    <string name="sell">Sell</string>
+
     <string name="send_to">Share App to Your Friends</string>
     <string name="footer_text"><link>Exchange It To Cash</link> </string>
     <string name="welcome">Welcome</string>
@@ -21,9 +24,36 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="contact">Contact</string>
+    <string name="address">Address</string>
     <string name="welcome_back">Hello Again!\nWelcome\nBack</string>
     <string name="already_member">Already have an Account?</string>
+    <string name="toolbar_get_loan">Get Loan</string>
+    <string name="toolbar_my_complains">My Complains</string>
+    <string name="toolbar_sell_product">Sell Product</string>
+    <string name="toolbar_items_list">My Item List</string>
+    <string name="toolbar_my_profile">My Profile</string>
 
+    <!--Complain Strings-->
+    <string name="complain_toolbar">Post Complain </string>
+    <string name="complain_header">Product Complain</string>
+    <string name="text_complain_header">Provide Details Of Product and Complain Details</string>
+    <string name="complain_button">Submit</string>
+    <string name="complain_item_type">Item Type</string>
+    <string name="complain_item_serial_or_imei">Serial or IMEI number</string>
+    <string name="complain_item_manufacturing_year">Manufacturing Year</string>
+    <string name="complain_contact_number">Contact Number</string>
+    <string name="complain_product_detail">Product Details</string>
+    <string name="complain_complain_detail">Complain Details</string>
+    <string name="complain_product_name">Dell Laptop</string>
+    <string name="complain_more_info">More Details</string>
+    <string name="complain_dummy_message">Dummy message Dummy message Dummy message Dummy message Dummy message Dummy message Dummy message Dummy message Dummy message Dummy message</string>
+    <!--Home Fragment Menus-->
+    <string name="fragment_home_loan_or_product">Loan / Sell Product</string>
+    <string name="fragment_home_track_my_items">\nTrack My Items</string>
+    <string name="fragment_home_product_lost_complain">Product Lost Complain</string>
+    <string name="fragment_home_user_profile">\nProfile</string>
+    <string name="fragment_home_complain_list">Complain List</string>
+    <string name="fragment_home_logout_user">Logout</string>
     <!--Navigation Drawer Strings Start-->
     <string name="title_activity_dashboard">Dashboard</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -32,6 +62,29 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <!--Navigation Drawer Strings End-->
 
+    <string-array name="item_condition">
+        <item>Select Condition</item>
+        <item>New</item>
+        <item>Old</item>
+    </string-array>
+    <string-array name="item_types">
+        <item>Select Product</item>
+        <item>MacBook Pro</item>
+        <item>MacBook Air</item>
+        <item>iMac</item>
+        <item>iPhone</item>
+        <item>iPad</item>
+        <item>Apple Inc Accessories</item>
+        <item>Android Phone</item>
+        <item>Windows Laptop</item>
+        <item>Android Accessories</item>
+        <item>Tablet</item>
+        <item>Play Station</item>
+        <item>Xbox</item>
+        <item>Other</item>
+    </string-array>
 </resources>
