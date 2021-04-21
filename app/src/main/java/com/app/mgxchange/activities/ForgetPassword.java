@@ -6,65 +6,54 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.app.mgxchange.R;
+import com.app.mgxchange.databinding.ActivityForgetPasswordBinding;
+
+import es.dmoral.toasty.Toasty;
 
 public class ForgetPassword extends AppCompatActivity {
-    EditText email, password, confirmPassword;
-    Button resetPass;
+    ActivityForgetPasswordBinding mBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forget_password);
-        if (Build.VERSION.SDK_INT >= 21)
-        {
+        mBinding = ActivityForgetPasswordBinding.inflate(getLayoutInflater());
+        View view = mBinding.getRoot();
+        setContentView(view);
+        if (Build.VERSION.SDK_INT >= 21) {
             getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
-            getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDark));
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
         }
-        initViewsForgetPassword();
-        resetPass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                resetPasswordValidation();
-            }
-        });
-
+        mBinding.btnFpResetPassword.setOnClickListener(view1 -> resetPassword());
     }
 
-    public void initViewsForgetPassword(){
-        email = findViewById(R.id.et_fp_email);
-        password = findViewById(R.id.et_fp_password);
-        confirmPassword = findViewById(R.id.et_fp_confirm_password);
-        resetPass = findViewById(R.id.btn_fp_reset_password);
-    }
-
-    public void resetPasswordValidation() {
-        String mail = email.getText().toString();
-        String pass = password.getText().toString();
-        String cPass = confirmPassword.getText().toString();
+    public void resetPassword() {
+        String mail = mBinding.etFpEmail.getText().toString();
+        String pass = mBinding.etFpPassword.getText().toString();
+        String cPass = mBinding.etFpConfirmPassword.getText().toString();
         if (TextUtils.isEmpty(mail) || mail.equals(" ")) {
-            email.setError("Enter Email Address");
-            email.requestFocus();
+            mBinding.etFpEmail.setError("Enter Email Address");
+            mBinding.etFpEmail.requestFocus();
         } else if (!Patterns.EMAIL_ADDRESS.matcher(mail).matches()) {
-            email.setError("Invalid Email Address");
-            email.requestFocus();
+            mBinding.etFpEmail.setError("Invalid Email Address");
+            mBinding.etFpEmail.requestFocus();
         } else if (TextUtils.isEmpty(pass) || pass.length() < 8) {
-            password.setError("Please Input a Valid Password Longer" +
+            mBinding.etFpPassword.setError("Please Input a Valid Password Longer" +
                     " Than 7 Characters");
-            password.requestFocus();
+            mBinding.etFpPassword.requestFocus();
         } else if (TextUtils.isEmpty(cPass) || cPass.equals(" ")) {
-            password.setError("Enter Confirm Password");
-            password.requestFocus();
+            mBinding.etFpConfirmPassword.setError("Enter Confirm Password");
+            mBinding.etFpConfirmPassword.requestFocus();
         } else if (!pass.matches(cPass)) {
-            password.setError("Passwords Not Matched");
-            password.requestFocus();
+            mBinding.etFpPassword.setError("Passwords Not Matched");
+            mBinding.etFpPassword.requestFocus();
         } else {
+            Toasty.success(getApplicationContext(), "Success",
+                    Toasty.LENGTH_LONG, true).show();
             Intent intent = new Intent(getApplicationContext(),
                     Dashboard.class);
             startActivity(intent);

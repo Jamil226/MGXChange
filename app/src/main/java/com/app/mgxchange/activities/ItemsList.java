@@ -7,25 +7,23 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.app.mgxchange.R;
+import com.app.mgxchange.databinding.ActivityItemsListBinding;
 
 public class ItemsList extends AppCompatActivity {
     ImageView back;
+    ActivityItemsListBinding mBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_items_list);
-        back = findViewById(R.id.img_btn_back_items_list);
+        mBinding = ActivityItemsListBinding.inflate(getLayoutInflater());
+        View view = mBinding.getRoot();
+        setContentView(view);
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), Dashboard.class);
-                startActivity(i);
-            }
+        mBinding.imgBtnBack.setOnClickListener(view1 -> {
+            Intent i = new Intent(getApplicationContext(), Dashboard.class);
+            startActivity(i);
         });
-
 
     }
 }

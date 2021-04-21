@@ -117,6 +117,7 @@ public class UserLogin extends AppCompatActivity {
                     String contact = json.getString("contact").trim();
                     String firstName = json.getString("firstname").trim();
                     String lastName = json.getString("lastname").trim();
+                    String address = json.getString("address").trim();
                     String imagePath = json.getString("imagepath").trim();
                     String loginMessage = json.getString("message").trim();
                     if (loginStatus.equals("1")) {
@@ -129,6 +130,7 @@ public class UserLogin extends AppCompatActivity {
                         editor.putString("email", emailAddress);
                         editor.putString("firstName", firstName);
                         editor.putString("lastName", lastName);
+                        editor.putString("address", address);
                         editor.putString("contact", contact);
                         editor.putString("imagePath", imagePath);
                         editor.apply();

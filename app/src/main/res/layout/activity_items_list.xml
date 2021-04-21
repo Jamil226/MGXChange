@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/img_btn_back_items_list"
+                android:layout_toRightOf="@id/img_btn_back"
                 android:text="@string/toolbar_items_list"
                 android:textStyle="bold"
                 android:fontFamily="@font/sf_regular"
@@ -28,7 +28,7 @@
                 android:textSize="20sp" />
 
             <ImageView
-                android:id="@+id/img_btn_back_items_list"
+                android:id="@+id/img_btn_back"
                 android:layout_width="25dp"
                 android:layout_height="35dp"
                 android:layout_alignParentLeft="true"

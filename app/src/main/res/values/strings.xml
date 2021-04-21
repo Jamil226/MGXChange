@@ -12,6 +12,7 @@
     <string name="register">SIGN UP</string>
     <string name="create_now">Create Now"</string>
     <string name="email">Email</string>
+    <string name="dummy_email">jamil.57@hotmail.com</string>
     <string name="new_password">New Password</string>
     <string name="password">Password</string>
     <string name="reset_pass">Reset Password</string>
@@ -24,7 +25,10 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="contact">Contact</string>
+    <string name="update_profile_user">Update Profile</string>
+    <string name="dummy_contact">+92 300 1234567</string>
     <string name="address">Address</string>
+    <string name="dummy_address">House No 87 R Block 57000, Punjab, Pakistan</string>
     <string name="welcome_back">Hello Again!\nWelcome\nBack</string>
     <string name="already_member">Already have an Account?</string>
     <string name="toolbar_get_loan">Get Loan</string>

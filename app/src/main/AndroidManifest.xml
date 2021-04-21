@@ -35,18 +35,20 @@
 
         </activity>
         <activity android:name=".activities.Welcome" />
-        <activity android:name=".activities.SplashScreen" />
+        <activity android:name=".activities.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activities.ForgetPassword" />
         <activity android:name=".activities.UserSignUp" />
         <activity android:name=".activities.UserLogin" />
         <activity android:name=".activities.PrivacyPolicy" />
         <activity
             android:name=".activities.Dashboard"
-            android:label="@string/title_activity_dashboard" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:label="@string/title_activity_dashboard">
+
         </activity>
     </application>
 

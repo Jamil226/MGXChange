@@ -21,15 +21,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/img_btn_back_detailed_user_profile"
+                android:layout_toEndOf="@id/img_btn_back"
                 android:text="@string/toolbar_my_profile"
                 android:textStyle="bold"
                 android:fontFamily="@font/sf_regular"
                 android:textColor="@color/white"
+                android:layout_toRightOf="@id/img_btn_back"
                 android:textSize="20sp" />
 
             <ImageView
-                android:id="@+id/img_btn_back_detailed_user_profile"
+                android:id="@+id/img_btn_back"
                 android:layout_width="25dp"
                 android:layout_height="35dp"
                 android:layout_alignParentLeft="true"
@@ -42,6 +43,7 @@
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
     <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/iv_user_image"
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:elevation="2dp"
@@ -60,9 +62,10 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv_user_full_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="John Maflow"
+                android:text="@string/app_name"
                 android:layout_marginTop="100dp"
                 android:textColor="@color/colorPrimary"
                 android:fontFamily="@font/sf_bold"
@@ -77,54 +80,66 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/email"
                 android:fontFamily="@font/sf_regular"
                 android:layout_gravity="center"/>
             <TextView
+                android:id="@+id/tv_user_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="abc@yahoo.com"
+                android:layout_marginLeft="30dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:text="@string/dummy_email"
                 android:fontFamily="@font/sf_regular"
                 android:layout_gravity="center"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Contact"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/contact"
                 android:fontFamily="@font/sf_regular"
                 android:layout_gravity="center"/>
             <TextView
+                android:id="@+id/tv_user_contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+92 345 890 6587"
+                android:layout_marginLeft="30dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:text="@string/dummy_contact"
                 android:fontFamily="@font/sf_regular"
                 android:layout_gravity="center"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Address"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/address"
                 android:fontFamily="@font/sf_regular"
                 android:layout_gravity="center"/>
             <TextView
+                android:id="@+id/tv_user_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Address Goes Here"
+                android:layout_marginLeft="30dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:text="@string/dummy_address"
                 android:fontFamily="@font/sf_regular"
                 android:layout_gravity="center"/>
             <Button
+                android:id="@+id/btn_update_user_profile"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:text="Update Profile"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="@string/update_profile_user"
                 android:textAllCaps="false"
                 android:fontFamily="@font/sf_regular"
                 />

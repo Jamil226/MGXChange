@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:viewBindingIgnore="true"
     tools:context=".activities.LoanOrSellSelection">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_product_details"
@@ -20,7 +19,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/img_btn_back_loan_or_sell"
+                android:layout_toRightOf="@id/img_btn_back"
                 android:text="@string/fragment_home_loan_or_product"
                 android:textStyle="bold"
                 android:fontFamily="@font/sf_regular"
@@ -28,7 +27,7 @@
                 android:textSize="20sp" />
 
             <ImageView
-                android:id="@+id/img_btn_back_loan_or_sell"
+                android:id="@+id/img_btn_back"
                 android:layout_width="25dp"
                 android:layout_height="35dp"
                 android:layout_alignParentLeft="true"
