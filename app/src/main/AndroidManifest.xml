@@ -23,7 +23,8 @@
         android:theme="@style/Theme.MGXChange"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
-        <activity android:name=".activities.ItemListDetails"></activity>
+        <activity android:name=".activities.UserUpdateProfile"></activity>
+        <activity android:name=".activities.ItemListDetails" />
         <activity android:name=".activities.ComplainListDetails" />
         <activity android:name=".activities.ComplainList" />
         <activity android:name=".activities.AddProductForLoan" />
