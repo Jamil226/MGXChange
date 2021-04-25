@@ -40,9 +40,15 @@ public class ComplainListAdapter extends RecyclerView.Adapter<ComplainListAdapte
         holder.productName.setText(mData.get(i).getProductName());
         holder.moreDetails.setOnClickListener(v -> {
             Intent intent = new Intent(context, ComplainListDetails.class);
-//            intent.putExtra("branch_id", mData.get(i).getId());
-//            intent.putExtra("branch_db", mData.get(i).getBranchDatabase());
-//            intent.putExtra("branch_product_images", mData.get(i).getImagePath());
+            intent.putExtra("complain_id", mData.get(i).getComplainID());
+            intent.putExtra("reference", mData.get(i).getReference());
+            intent.putExtra("message", mData.get(i).getComplainMessage());
+            intent.putExtra("serial", mData.get(i).getSerialNo());
+            intent.putExtra("status", mData.get(i).getComplainStatus());
+            intent.putExtra("product_name", mData.get(i).getProductName());
+            intent.putExtra("date", mData.get(i).getComplainDate());
+            intent.putExtra("contact", mData.get(i).getContact());
+            intent.putExtra("product_details", mData.get(i).getProductDetail());
             context.startActivity(intent);
         });
     }

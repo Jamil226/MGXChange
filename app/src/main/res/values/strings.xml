@@ -33,8 +33,10 @@
     <string name="already_member">Already have an Account?</string>
     <string name="toolbar_get_loan">Get Loan</string>
     <string name="toolbar_my_complains">My Complains</string>
+    <string name="toolbar_complain_details">Complain Details</string>
     <string name="toolbar_sell_product">Sell Product</string>
     <string name="toolbar_items_list">My Item List</string>
+    <string name="toolbar_items_list_details">Item Details</string>
     <string name="toolbar_my_profile">My Profile</string>
 
     <!--Complain Strings-->
@@ -43,14 +45,21 @@
     <string name="text_complain_header">Provide Details Of Product and Complain Details</string>
     <string name="complain_button">Submit</string>
     <string name="complain_item_type">Item Type</string>
-    <string name="complain_item_serial_or_imei">Serial or IMEI number</string>
+    <string name="complain_item_serial_or_imei">Serial or IMEI</string>
     <string name="complain_item_manufacturing_year">Manufacturing Year</string>
     <string name="complain_contact_number">Contact Number</string>
     <string name="complain_product_detail">Product Details</string>
     <string name="complain_complain_detail">Complain Details</string>
+    <string name="complain_date">Complain Date</string>
+    <string name="complain_status">Complain Status</string>
+    <string name="product_status">Product Status</string>
     <string name="complain_product_name">Dell Laptop</string>
+    <string name="complain_product_name_label">Product Name</string>
+    <string name="complain_reference">Complain #</string>
     <string name="complain_more_info">More Details</string>
+    <string name="product_price">$400</string>
     <string name="complain_dummy_message">Dummy message Dummy message Dummy message Dummy message Dummy message Dummy message Dummy message Dummy message Dummy message Dummy message</string>
+    <string name="lorem_ipsm_large">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the </string>
     <!--Home Fragment Menus-->
     <string name="fragment_home_loan_or_product">Loan / Sell Product</string>
     <string name="fragment_home_track_my_items">\nTrack My Items</string>

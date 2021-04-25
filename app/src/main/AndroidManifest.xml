@@ -23,7 +23,8 @@
         android:theme="@style/Theme.MGXChange"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
-        <activity android:name=".activities.ComplainListDetails"></activity>
+        <activity android:name=".activities.ItemListDetails"></activity>
+        <activity android:name=".activities.ComplainListDetails" />
         <activity android:name=".activities.ComplainList" />
         <activity android:name=".activities.AddProductForLoan" />
         <activity android:name=".activities.ItemsList" />
@@ -31,13 +32,12 @@
         <activity android:name=".activities.SellProduct" />
         <activity android:name=".activities.GetLoanUsingProduct" />
         <activity android:name=".activities.LoanOrSellSelection" />
-        <activity android:name=".activities.AddComplain">
-
-        </activity>
+        <activity android:name=".activities.AddComplain" />
         <activity android:name=".activities.Welcome" />
         <activity android:name=".activities.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -47,9 +47,7 @@
         <activity android:name=".activities.PrivacyPolicy" />
         <activity
             android:name=".activities.Dashboard"
-            android:label="@string/title_activity_dashboard">
-
-        </activity>
+            android:label="@string/title_activity_dashboard" />
     </application>
 
 </manifest>

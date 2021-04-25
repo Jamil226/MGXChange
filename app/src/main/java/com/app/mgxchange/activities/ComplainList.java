@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -45,7 +44,7 @@ public class ComplainList extends AppCompatActivity {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         SharedPreferences prefPersonalUser = getSharedPreferences("userData", MODE_PRIVATE);
         userID = prefPersonalUser.getString("user_id", null);
-        Toast.makeText(getApplicationContext(), userID, Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(), userID, Toast.LENGTH_LONG).show();
         progressDialog.setTitle("Loading");
         progressDialog.setMessage("Please Wait...");
         progressDialog.show();

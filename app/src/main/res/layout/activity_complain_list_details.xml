@@ -1,16 +1,278 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activities.ComplainListDetails">
-    <TextView
-        android:layout_margin="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Complain Detail Here"
-        android:textSize="30sp"/>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_complain_list_details"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/title_toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/img_btn_back"
+                android:layout_toRightOf="@id/img_btn_back"
+                android:fontFamily="@font/sf_regular"
+                android:text="@string/toolbar_complain_details"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/img_btn_back"
+                android:layout_width="25dp"
+                android:layout_height="35dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/ic_back_button" />
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_complain_reference_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sf_bold"
+                android:text="@string/complain_reference"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/tv_complain_reference"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/tv_complain_reference_label"
+                android:layout_toRightOf="@+id/tv_complain_reference_label"
+                android:fontFamily="@font/sf_regular"
+                android:text="@string/complain_reference"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_complain_product_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_complain_reference"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sf_bold"
+                android:text="@string/complain_product_name_label"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/tv_complain_product_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="61dp"
+                android:layout_toEndOf="@+id/tv_complain_product_name_label"
+                android:layout_toRightOf="@+id/tv_complain_product_name_label"
+                android:fontFamily="@font/sf_regular"
+                android:text="@string/complain_product_name_label"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_serial_number_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_complain_product_name"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sf_bold"
+                android:text="@string/complain_item_serial_or_imei"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/tv_serial_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="100dp"
+                android:layout_toEndOf="@+id/tv_serial_number_label"
+                android:layout_toRightOf="@+id/tv_serial_number_label"
+                android:fontFamily="@font/sf_regular"
+                android:text="@string/complain_item_serial_or_imei"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_complain_date_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_serial_number"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sf_bold"
+                android:text="@string/complain_date"
+                android:textColor="@color/colorPrimary"
+                />
+
+            <TextView
+                android:id="@+id/tv_complain_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="140dp"
+                android:layout_toEndOf="@+id/tv_complain_date_label"
+                android:layout_toRightOf="@+id/tv_complain_date_label"
+                android:fontFamily="@font/sf_regular"
+                android:text="@string/complain_date"
+                android:textColor="@color/black" />
 
 
+
+            <TextView
+                android:id="@+id/tv_contact_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_complain_date_label"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sf_bold"
+                android:text="@string/contact"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/tv_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="180dp"
+                android:layout_toEndOf="@+id/tv_contact_label"
+                android:layout_toRightOf="@+id/tv_contact_label"
+                android:fontFamily="@font/sf_regular"
+                android:text="@string/contact"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_complain_product_details_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_contact"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sf_bold"
+                android:text="@string/complain_product_detail"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/tv_complain_product_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_complain_product_details_label"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:fontFamily="@font/sf_regular"
+                android:text="@string/complain_product_detail"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_complain_details_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_complain_product_details"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sf_bold"
+                android:text="@string/complain_complain_detail"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/tv_complain_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_complain_details_label"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:fontFamily="@font/sf_regular"
+                android:text="@string/complain_complain_detail"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_complain_status_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_complain_details"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sf_bold"
+                android:text="@string/complain_status"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/tv_complain_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_complain_status_label"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/custom_btn_stroke"
+                android:fontFamily="@font/sf_regular"
+                android:padding="10dp"
+                android:text="@string/complain_status"
+                android:textColor="@color/colorPrimary" />
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </LinearLayout>
