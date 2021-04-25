@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activities.UserUpdateProfile">
     <androidx.appcompat.widget.Toolbar
@@ -38,5 +39,118 @@
                 android:src="@drawable/ic_back_button" />
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp">
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/iv_loan_product_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/image_default" />
+
+        <ImageView
+            android:id="@+id/iv_loan_product_choose"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="4dp"
+            android:src="@drawable/ic_add_a_photo" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/etUserFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/custom_et_all"
+        android:fontFamily="@font/sf_regular"
+        android:hint="@string/first_name"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:singleLine="true"
+        android:textSize="14sp"
+        />
+    <EditText
+        android:id="@+id/etUserLastName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/custom_et_all"
+        android:fontFamily="@font/sf_regular"
+        android:hint="@string/last_name"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:singleLine="true"
+        android:textSize="14sp"
+        />
+    <EditText
+        android:id="@+id/etUserContact"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/custom_et_all"
+        android:fontFamily="@font/sf_regular"
+        android:hint="@string/contact"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:singleLine="true"
+        android:textSize="14sp"
+        />
+    <EditText
+        android:id="@+id/etUserAddress"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/custom_et_all"
+        android:fontFamily="@font/sf_regular"
+        android:hint="@string/address"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:singleLine="true"
+        android:textSize="14sp"
+        />
+    <Button
+        android:id="@+id/btnUpdateProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="40dp"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/sf_regular"
+        android:text="@string/complain_button"
+        android:textAllCaps="false"
+        android:textColor="#fff"/>
+
 
 </LinearLayout>

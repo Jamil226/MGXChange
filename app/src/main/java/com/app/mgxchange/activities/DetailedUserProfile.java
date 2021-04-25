@@ -13,8 +13,6 @@ import com.app.mgxchange.databinding.ActivityDetailedUserProfileBinding;
 import com.app.mgxchange.utils.ApiUrls;
 import com.bumptech.glide.Glide;
 
-import es.dmoral.toasty.Toasty;
-
 public class DetailedUserProfile extends AppCompatActivity {
     String TAG = "DetailedUserProfile";
     ActivityDetailedUserProfileBinding mBinding;
@@ -49,8 +47,8 @@ public class DetailedUserProfile extends AppCompatActivity {
         });
 
         mBinding.btnUpdateUserProfile.setOnClickListener(updateProfileButton -> {
-            Toasty.info(getApplicationContext(), "Feature Coming Soon",
-                    Toasty.LENGTH_LONG, true).show();
+            Intent i = new Intent(getContext(), UserUpdateProfile.class);
+            startActivity(i);
         });
 
     }
