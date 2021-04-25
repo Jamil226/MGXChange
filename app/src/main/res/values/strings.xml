@@ -38,6 +38,7 @@
     <string name="toolbar_items_list">My Item List</string>
     <string name="toolbar_items_list_details">Item Details</string>
     <string name="toolbar_my_profile">My Profile</string>
+    <string name="toolbar_update_profile">Update Profile</string>
 
     <!--Complain Strings-->
     <string name="complain_toolbar">Post Complain </string>

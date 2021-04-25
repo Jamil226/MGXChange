@@ -1,5 +1,6 @@
 package com.app.mgxchange.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -16,6 +17,13 @@ public class UserUpdateProfile extends AppCompatActivity {
         mBinding = ActivityUserUpdateProfileBinding.inflate(getLayoutInflater());
         View view = mBinding.getRoot();
         setContentView(view);
+
+
+
+        mBinding.imgBtnBack.setOnClickListener(viewImgBtnBack -> {
+            Intent i = new Intent(getApplicationContext(), Dashboard.class);
+            startActivity(i);
+        });
 
     }
 }
