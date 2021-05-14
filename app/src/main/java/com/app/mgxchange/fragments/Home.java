@@ -68,13 +68,9 @@ public class Home extends Fragment {
         userLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences preferences = getActivity().getSharedPreferences("userData", Context.MODE_PRIVATE);
+                SharedPreferences preferences = getActivity().getSharedPreferences("UserPref", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("email", "null");
-                editor.putString("firstName", "null");
-                editor.putString("lastName", "null");
-                editor.putString("contact", "null");
-                editor.putString("address", "null");
+                editor.clear();
                 editor.apply();
                 Toasty.success(getContext(),
                         "Logout Success",

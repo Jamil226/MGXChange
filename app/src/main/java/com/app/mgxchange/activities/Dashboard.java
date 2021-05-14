@@ -1,7 +1,6 @@
 package com.app.mgxchange.activities;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,6 +26,8 @@ import com.app.mgxchange.utils.ApiUrls;
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 import com.mikhaellopez.circularimageview.CircularImageView;
+
+import es.dmoral.toasty.Toasty;
 
 public class Dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -140,16 +141,10 @@ public class Dashboard extends AppCompatActivity
             Intent intent = new Intent(getApplicationContext(), ItemsList.class);
             startActivity(intent);
         } else if (id == R.id.nav_logout) {
-            SharedPreferences preferences = getSharedPreferences("userData", MODE_PRIVATE);
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putString("user_id", "null");
-            editor.putString("email", "null");
-            editor.putString("firstName", "null");
-            editor.putString("lastName", "null");
-            editor.putString("contact", "null");
-            editor.putString("imagePath", "null");
-            editor.putString("address", "null");
-            editor.apply();
+            userSharedPrefManager.logout();
+            Toasty.success(getApplicationContext(),
+                    "Logout Success",
+                    Toasty.LENGTH_SHORT, true).show();
             Intent intent = new Intent(getApplicationContext(), Welcome.class);
             startActivity(intent);
             finish();
