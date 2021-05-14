@@ -2,11 +2,10 @@ package com.app.mgxchange.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -17,27 +16,22 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.app.mgxchange.R;
-import com.app.mgxchange.utils.ApiUrls;
+import com.app.mgxchange.models.LoginUserResponse;
+import com.app.mgxchange.sharedPrefs.UserSharedPrefManager;
+import com.app.mgxchange.utils.RetrofitClient;
 
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class UserLogin extends AppCompatActivity {
     Button signIn;
     EditText email, password;
     TextView forgotPassword, signUp;
+    private static final String TAG = "RiderLogin";
+    UserSharedPrefManager userSharedPrefManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +41,7 @@ public class UserLogin extends AppCompatActivity {
             getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
             getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
         }
+        userSharedPrefManager = new UserSharedPrefManager(getApplicationContext());
 
         initViewsLogin();
         signIn.setOnClickListener(new View.OnClickListener() {
@@ -98,83 +93,46 @@ public class UserLogin extends AppCompatActivity {
         progressDialog.setTitle("Loading");
         progressDialog.setMessage("Please Wait...");
         progressDialog.show();
+        progressDialog.setCancelable(false);
+        String mail = email.getText().toString();
+        String pass = password.getText().toString();
 
-        Uri.Builder builder = Uri.parse(ApiUrls.LoginUser).buildUpon();
-        builder.appendQueryParameter("email", email.getText().toString());
-        builder.appendQueryParameter("password", password.getText().toString());
-        String urlEncrypted = builder.build().toString();
-        StringRequest stringRequest = new StringRequest(Request.Method.GET,
-                urlEncrypted, new Response.Listener<String>() {
+        Call<LoginUserResponse> call = RetrofitClient
+                .getInstance()
+                .getApi().loginUser(mail, pass);
+        call.enqueue(new Callback<LoginUserResponse>() {
             @Override
-            public void onResponse(String response) {
+            public void onResponse(Call<LoginUserResponse> call,
+                                   Response<LoginUserResponse> response) {
                 progressDialog.dismiss();
-                try {
-                    JSONObject json = new JSONObject(response);
-                    String loginStatus = json.getString("success").trim();
-                    String id = json.getString("userid").trim();
-                    String username = json.getString("username").trim();
-                    String emailAddress = json.getString("email").trim();
-                    String contact = json.getString("contact").trim();
-                    String firstName = json.getString("firstname").trim();
-                    String lastName = json.getString("lastname").trim();
-                    String address = json.getString("address").trim();
-                    String imagePath = json.getString("imagepath").trim();
-                    String loginMessage = json.getString("message").trim();
-                    if (loginStatus.equals("1")) {
+                LoginUserResponse loginUserResponse = response.body();
+                if (response.isSuccessful()) {
+                    if (loginUserResponse.getUserStatus().equals("200")) {
+                        userSharedPrefManager.saveUser(loginUserResponse.getUser());
                         Toast.makeText(UserLogin.this,
-                                "Login Success",
-                                Toast.LENGTH_LONG).show();
-                        SharedPreferences preferences = getSharedPreferences("userData", MODE_PRIVATE);
-                        SharedPreferences.Editor editor = preferences.edit();
-                        editor.putString("user_id", id);
-                        editor.putString("email", emailAddress);
-                        editor.putString("firstName", firstName);
-                        editor.putString("lastName", lastName);
-                        editor.putString("address", address);
-                        editor.putString("contact", contact);
-                        editor.putString("imagePath", imagePath);
-                        editor.apply();
+                                loginUserResponse.getUserMessage(),
+                                Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(getApplicationContext(), Dashboard.class);
+                        startActivity(i);
                         finish();
-                        Intent intent = new Intent(getApplicationContext(), Dashboard.class);
-                        startActivity(intent);
-                    } else {
+                    } else if (loginUserResponse.getUserStatus().equals("400")) {
                         Toast.makeText(UserLogin.this,
-                                "Email or Password Incorrect",
-                                Toast.LENGTH_LONG).show();
-
+                                loginUserResponse.getUserMessage(),
+                                Toast.LENGTH_SHORT).show();
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } else {
+                    Toast.makeText(UserLogin.this,
+                            loginUserResponse.getUserMessage(),
+                            Toast.LENGTH_SHORT).show();
                 }
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(UserLogin.this,
-                        "Exception Found: " + error.getMessage(),
-                        Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<LoginUserResponse> call, Throwable t) {
+                progressDialog.dismiss();
+                Log.d(TAG, t.toString());
             }
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("password", email.getText().toString());
-                params.put("password", password.getText().toString());
-                return params;
-            }
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> headers = new HashMap<>();
-                headers.put("Content-Type", "text/xml");
-                return headers;
-            }
-        };
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                10000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        RequestQueue queue = Volley.newRequestQueue(UserLogin.this);
-        queue.add(stringRequest);
+        });
     }
 
     public void initViewsLogin() {
@@ -183,6 +141,5 @@ public class UserLogin extends AppCompatActivity {
         forgotPassword = findViewById(R.id.tv_user_sign_in_fp);
         signUp = findViewById(R.id.tv_user_sign_in_ca);
         signIn = findViewById(R.id.btn_user_sing_in);
-
     }
 }

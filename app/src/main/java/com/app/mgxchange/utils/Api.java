@@ -1,5 +1,6 @@
 package com.app.mgxchange.utils;
 
+import com.app.mgxchange.models.LoginUserResponse;
 import com.app.mgxchange.models.RegisterUserResponse;
 
 import retrofit2.Call;
@@ -21,12 +22,12 @@ public interface Api {
         @Field("password") String password
     );
 
-//    @FormUrlEncoded
-//    @POST("login-rider.php")
-//    Call<LoginRiderResponse> loginRider(
-//            @Field("email") String email,
-//            @Field("password") String password
-//    );
+    @FormUrlEncoded
+    @POST("login-user.php")
+    Call<LoginUserResponse> loginUser(
+            @Field("email") String email,
+            @Field("password") String password
+    );
 //
 //    @FormUrlEncoded
 //    @POST("login-admin.php")
