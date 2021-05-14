@@ -148,9 +148,8 @@
         android:layout_marginBottom="40dp"
         android:background="@color/colorPrimary"
         android:fontFamily="@font/sf_regular"
-        android:text="@string/complain_button"
+        android:text="@string/button_update_profile"
         android:textAllCaps="false"
         android:textColor="#fff"/>
-
 
 </LinearLayout>

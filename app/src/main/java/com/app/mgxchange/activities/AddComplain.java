@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkError;
 import com.android.volley.NoConnectionError;
-import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
@@ -132,13 +131,12 @@ public class AddComplain extends AppCompatActivity {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
                 ApiUrls.SubmitComplain,
                 jsonObject, response -> {
-//                            Log.i(TAG, "onResponse: Complain Response:" + response);
             progressDialog.dismiss();
             try {
                 Log.d(TAG, "Response : " + response);
-//                Toast.makeText(this, "Response == " + response, Toast.LENGTH_SHORT).show();
-                String responseStatus = response.getString("status");
-                String message = response.getString("message");
+
+                String responseStatus = response.getString("status").trim();
+                String message = response.getString("message").trim();
                 boolean status = Boolean.parseBoolean(responseStatus);
                 if (status) {
                     Toast.makeText(AddComplain.this, "Success", Toast.LENGTH_SHORT).show();
@@ -166,13 +164,6 @@ public class AddComplain extends AppCompatActivity {
             } else if (error instanceof NetworkError) {
                 Toast.makeText(AddComplain.this, "Network Connection Issue", Toast.LENGTH_SHORT).show();
                 //TODO
-            } else if (error instanceof ParseError) {
-//                Toast.makeText(AddComplain.this, "Invalid Json Parsing", Toast.LENGTH_SHORT).show();
-//                //TODO
-                Toast.makeText(AddComplain.this, "Success", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(getApplicationContext(), Dashboard.class);
-                startActivity(i);
-                finish();
             }
         });
 

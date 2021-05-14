@@ -47,7 +47,7 @@ public class DetailedUserProfile extends AppCompatActivity {
         });
 
         mBinding.btnUpdateUserProfile.setOnClickListener(updateProfileButton -> {
-            Intent i = new Intent(getContext(), UserUpdateProfile.class);
+            Intent i = new Intent(getApplicationContext(), UserUpdateProfile.class);
             startActivity(i);
         });
 

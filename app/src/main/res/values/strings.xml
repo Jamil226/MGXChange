@@ -45,6 +45,7 @@
     <string name="complain_header">Product Complain</string>
     <string name="text_complain_header">Provide Details Of Product and Complain Details</string>
     <string name="complain_button">Submit</string>
+    <string name="button_update_profile">Update</string>
     <string name="complain_item_type">Item Type</string>
     <string name="complain_item_serial_or_imei">Serial or IMEI</string>
     <string name="complain_item_manufacturing_year">Manufacturing Year</string>
