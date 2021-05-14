@@ -8,9 +8,11 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.mgxchange.R;
+import com.app.mgxchange.sharedPrefs.UserSharedPrefManager;
 
 public class Welcome extends AppCompatActivity {
     Button login, signUp;
+    UserSharedPrefManager userSharedPrefManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +20,7 @@ public class Welcome extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
         login = findViewById(R.id.btn_welcome_login);
         signUp = findViewById(R.id.btn_welcome_register);
+        userSharedPrefManager = new UserSharedPrefManager(getApplicationContext());
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -32,5 +35,13 @@ public class Welcome extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(userSharedPrefManager.isLoggedIn(getApplicationContext())){
+            Intent i = new Intent(getApplicationContext(), Dashboard.class);
+            startActivity(i);
+        }
     }
 }

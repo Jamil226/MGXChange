@@ -142,4 +142,5 @@ public class UserLogin extends AppCompatActivity {
         signUp = findViewById(R.id.tv_user_sign_in_ca);
         signIn = findViewById(R.id.btn_user_sing_in);
     }
+
 }
