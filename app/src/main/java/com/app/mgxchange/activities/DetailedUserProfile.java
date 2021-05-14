@@ -1,7 +1,6 @@
 package com.app.mgxchange.activities;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,12 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.mgxchange.R;
 import com.app.mgxchange.databinding.ActivityDetailedUserProfileBinding;
+import com.app.mgxchange.sharedPrefs.UserSharedPrefManager;
 import com.app.mgxchange.utils.ApiUrls;
 import com.bumptech.glide.Glide;
 
 public class DetailedUserProfile extends AppCompatActivity {
     String TAG = "DetailedUserProfile";
     ActivityDetailedUserProfileBinding mBinding;
+    UserSharedPrefManager userSharedPrefManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +24,16 @@ public class DetailedUserProfile extends AppCompatActivity {
         mBinding = ActivityDetailedUserProfileBinding.inflate(getLayoutInflater());
         View view = mBinding.getRoot();
         setContentView(view);
-        SharedPreferences prefPersonalUser = getSharedPreferences("userData", MODE_PRIVATE);
-        String userID = prefPersonalUser.getString("user_id", null);
-        String firstName = prefPersonalUser.getString("firstName", null);
-        String lastName = prefPersonalUser.getString("lastName", null);
-        String address = prefPersonalUser.getString("address", null);
-        String contact = prefPersonalUser.getString("contact", null);
-        String email = prefPersonalUser.getString("email", null);
-        String imagePath = prefPersonalUser.getString("imagePath", null);
+
+        userSharedPrefManager = new UserSharedPrefManager(getApplicationContext());
+        String userID = userSharedPrefManager.getUser().getUserID();
+        String firstName = userSharedPrefManager.getUser().getFirstName();
+        String lastName = userSharedPrefManager.getUser().getLastName();
+        String contact = userSharedPrefManager.getUser().getContact();
+        String address = userSharedPrefManager.getUser().getAddress();
+        String email = userSharedPrefManager.getUser().getEmail();
+        String imagePath = userSharedPrefManager.getUser().getImagePath();
+
         Log.d(TAG, "User ID = " + userID);
         Glide.with(getApplicationContext())
                 .load(ApiUrls.imgParentUrl + imagePath)

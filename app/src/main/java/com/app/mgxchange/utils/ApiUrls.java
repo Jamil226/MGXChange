@@ -9,7 +9,7 @@ public class ApiUrls {
 
     //Base URLs
     public static String BaseURL = "https://mgxchange.co.za/api/";
-    public static String imgParentUrl = "https://mgxchange.co.za/api/";
+    public static String imgParentUrl = "https://mgxchange.co.za/api/images/";
     //Components
     public static String RegisterUser = BaseURL + "registration.php";
     public static String LoginUser = BaseURL + "login.php";

@@ -22,6 +22,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.app.mgxchange.R;
 import com.app.mgxchange.fragments.Home;
+import com.app.mgxchange.sharedPrefs.UserSharedPrefManager;
 import com.app.mgxchange.utils.ApiUrls;
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
@@ -37,6 +38,7 @@ public class Dashboard extends AppCompatActivity
     TextView fullName, userEmail;
     View headerView;
     FragmentTransaction fragmentTransaction;
+    UserSharedPrefManager userSharedPrefManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,15 +50,12 @@ public class Dashboard extends AppCompatActivity
         toolbar.setTitle(R.string.app_name);
         toolbar.setTitleTextColor(Color.WHITE);
         fragment = getSupportFragmentManager().findFragmentById(R.id.frame_layout_dashboard);
-
-        SharedPreferences prefPersonalUser = getSharedPreferences("userData", MODE_PRIVATE);
-        String userID = prefPersonalUser.getString("user_id", null);
-        String firstName = prefPersonalUser.getString("firstName", null);
-        String lastName = prefPersonalUser.getString("lastName", null);
-        String address = prefPersonalUser.getString("address", null);
-        String contact = prefPersonalUser.getString("contact", null);
-        String email = prefPersonalUser.getString("email", null);
-        String imagePath = prefPersonalUser.getString("imagePath", null);
+        userSharedPrefManager = new UserSharedPrefManager(getApplicationContext());
+        String userID = userSharedPrefManager.getUser().getUserID();
+        String firstName = userSharedPrefManager.getUser().getFirstName();
+        String lastName = userSharedPrefManager.getUser().getLastName();
+        String imagePath = userSharedPrefManager.getUser().getImagePath();
+        String email = userSharedPrefManager.getUser().getEmail();
         Log.d(TAG, "User ID = " + userID);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
