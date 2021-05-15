@@ -4,6 +4,7 @@ import com.app.mgxchange.models.ActiveLoanProductListResponse;
 import com.app.mgxchange.models.ActiveSellProductListResponse;
 import com.app.mgxchange.models.LoginUserResponse;
 import com.app.mgxchange.models.RegisterUserResponse;
+import com.app.mgxchange.models.UserProfileImageResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -42,6 +43,14 @@ public interface Api {
     Call<ActiveSellProductListResponse> getSellProductList(
             @Field("userid") String userID
     );
+
+    @FormUrlEncoded
+    @POST("update-user-profile-image.php")
+    Call<UserProfileImageResponse> updateUserImage(
+            @Field("userid") String userID,
+            @Field("encoded_image") String encodedImage
+    );
+
 
 //    @GET("fetch-loan-products-active.php")
 //    Call<ActiveLoanProductListResponse> fetchAllActiveLoanProducts();
