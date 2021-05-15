@@ -51,7 +51,7 @@
         app:cardCornerRadius="10dp">
 
         <ImageView
-            android:id="@+id/iv_product_details_user"
+            android:id="@+id/ivProductImage"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_marginTop="10dp"
@@ -68,6 +68,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/tvProductName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -79,6 +80,7 @@
                 android:textSize="20sp"
                 />
             <TextView
+                android:id="@+id/tvProductPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -89,6 +91,7 @@
                 android:textColor="@color/orange"
                 />
             <TextView
+                android:id="@+id/tvProductDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -103,19 +106,19 @@
     </ScrollView>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
         android:background="@color/colorPrimary"
-        android:gravity="bottom"
         >
         <TextView
+            android:id="@+id/tvProductStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_margin="10dp"
             android:fontFamily="@font/sf_regular"
             android:gravity="center_horizontal"
-            android:text="@string/complain_status"
+            android:text="@string/product_status"
             android:textAlignment="center"
             android:textColor="@color/white" />
     </RelativeLayout>

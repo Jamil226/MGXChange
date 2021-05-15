@@ -13,7 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.mgxchange.R;
-import com.app.mgxchange.activities.Dashboard;
+import com.app.mgxchange.activities.ItemListDetails;
 import com.app.mgxchange.models.Products;
 import com.app.mgxchange.utils.ApiUrls;
 import com.bumptech.glide.Glide;
@@ -67,8 +67,9 @@ public class UserActiveLoanProductsAdapter
         String imgThree = ApiUrls.imgParentUrl + mData.get(i).getImageThree();
         String imgFour = ApiUrls.imgParentUrl + mData.get(i).getImageFour();
         String imgFive = ApiUrls.imgParentUrl + mData.get(i).getImageFive();
+        String productStatus = mData.get(i).getProductStatus();
         holder.cardView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, Dashboard.class);
+            Intent intent = new Intent(context, ItemListDetails.class);
             intent.putExtra("product_id", productID);
             intent.putExtra("user_id", userID);
             intent.putExtra("product_name", productName);
@@ -82,6 +83,7 @@ public class UserActiveLoanProductsAdapter
             intent.putExtra("image_three", imgThree);
             intent.putExtra("image_four", imgFour);
             intent.putExtra("image_five", imgFive);
+            intent.putExtra("product_status", productStatus);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
         });
