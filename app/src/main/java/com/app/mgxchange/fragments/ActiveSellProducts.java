@@ -10,11 +10,14 @@ import androidx.fragment.app.Fragment;
 import com.app.mgxchange.R;
 
 
-public class SellProducts extends Fragment {
+public class ActiveSellProducts extends Fragment {
+    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_sell_products, container, false);
+        view = inflater.inflate(R.layout.fragment_active_sell_products, container, false);
+
+        return view;
     }
 }

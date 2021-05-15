@@ -3,7 +3,7 @@
     <string name="app_slogan">Exchange It To Cash</string>
     <string name="loan">Loan</string>
     <string name="sell">Sell</string>
-
+    <string name="dummy_price">$100</string>
     <string name="send_to">Share App to Your Friends</string>
     <string name="footer_text"><link>Exchange It To Cash</link> </string>
     <string name="welcome">Welcome</string>

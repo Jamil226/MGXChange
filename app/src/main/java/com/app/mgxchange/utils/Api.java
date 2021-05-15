@@ -1,5 +1,6 @@
 package com.app.mgxchange.utils;
 
+import com.app.mgxchange.models.ActiveLoanProductListResponse;
 import com.app.mgxchange.models.LoginUserResponse;
 import com.app.mgxchange.models.RegisterUserResponse;
 
@@ -28,6 +29,15 @@ public interface Api {
             @Field("email") String email,
             @Field("password") String password
     );
+    @FormUrlEncoded
+    @POST("fetch-loan-products-active-user.php")
+    Call<ActiveLoanProductListResponse> getLoanProductList(
+            @Field("userid") String userID
+    );
+
+//    @GET("fetch-loan-products-active.php")
+//    Call<ActiveLoanProductListResponse> fetchAllActiveLoanProducts();
+//
 //
 //    @FormUrlEncoded
 //    @POST("login-admin.php")
@@ -42,12 +52,7 @@ public interface Api {
 //    @GET("complain-list-admin.php")
 //    Call<ComplainListResponse> fetchAllComplains();
 //
-//    @GET("fetch-sell-products-active.php")
-//    Call<ActiveSellProductListResponse> fetchAllActiveSellProducts();
-//
-//    @GET("fetch-loan-products-active.php")
-//    Call<ActiveLoanProductListResponse> fetchAllActiveLoanProducts();
-//
+
 //    @GET("fetch-sell-products-inactive.php")
 //    Call<InActiveSellProductListResponse> fetchAllInActiveSellProducts();
 //
