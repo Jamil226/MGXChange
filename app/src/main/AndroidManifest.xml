@@ -27,11 +27,11 @@
         <activity android:name=".activities.ItemListDetails" />
         <activity android:name=".activities.ComplainListDetails" />
         <activity android:name=".activities.ComplainList" />
-        <activity android:name=".activities.AddProductForLoan" />
+        <activity android:name=".activities.AddProductToSell" />
         <activity android:name=".activities.ItemsList" />
         <activity android:name=".activities.DetailedUserProfile" />
         <activity android:name=".activities.SellProduct" />
-        <activity android:name=".activities.GetLoanUsingProduct" />
+        <activity android:name=".activities.AddProductToGetLoan" />
         <activity android:name=".activities.LoanOrSellSelection" />
         <activity android:name=".activities.AddComplain" />
         <activity android:name=".activities.Welcome" />

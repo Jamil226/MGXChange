@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:viewBindingIgnore="true"
-    tools:context=".activities.GetLoanUsingProduct">
+    tools:context=".activities.AddProductToGetLoan">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_product_details"

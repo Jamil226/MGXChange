@@ -24,7 +24,7 @@
     <string name="no_account_question">Don’t Have An Account?</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
-    <string name="contact">Contact</string>
+    <string name="contact">Contact Number</string>
     <string name="update_profile_user">Update Profile</string>
     <string name="dummy_contact">+92 300 1234567</string>
     <string name="address">Address</string>
@@ -32,6 +32,8 @@
     <string name="welcome_back">Hello Again!\nWelcome\nBack</string>
     <string name="already_member">Already have an Account?</string>
     <string name="toolbar_get_loan">Get Loan</string>
+    <string name="toolbar_add_loan_product">Add Product For Loan</string>
+    <string name="toolbar_sell_item">Sell an Item</string>
     <string name="toolbar_my_complains">My Complains</string>
     <string name="toolbar_complain_details">Complain Details</string>
     <string name="toolbar_sell_product">Sell Product</string>
@@ -41,15 +43,22 @@
     <string name="toolbar_update_profile">Update Profile</string>
     <string name="toolbar_update_profile_image">Update Profile Image</string>
     <string name="upload_picture">Upload New Profile Picture</string>
+    <string name="required_loan_amount_text">Asking Amount</string>
+    <string name="product_year_text">Manufacturing Year</string>
 
     <!--Complain Strings-->
     <string name="complain_toolbar">Post Complain </string>
     <string name="complain_header">Product Complain</string>
+    <string name="post_product">Post</string>
+    <string name="product_header">Product Details</string>
+    <string name="product_image_header">Product Images</string>
+    <string name="product_image_text">Please upload all required five images.</string>
+    <string name="text_product_header">Provide the accurate details of the product here.</string>
     <string name="text_complain_header">Provide Details Of Product and Complain Details</string>
     <string name="complain_button">Submit</string>
     <string name="button_update_profile">Update</string>
     <string name="complain_item_type">Item Type</string>
-    <string name="complain_item_serial_or_imei">Serial or IMEI</string>
+    <string name="complain_item_serial_or_imei">Serial or IMEI Number</string>
     <string name="complain_item_manufacturing_year">Manufacturing Year</string>
     <string name="complain_contact_number">Contact Number</string>
     <string name="complain_product_detail">Product Details</string>

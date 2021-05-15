@@ -47,7 +47,7 @@ import java.io.ByteArrayOutputStream;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-public class GetLoanUsingProduct extends AppCompatActivity {
+public class AddProductToGetLoan extends AppCompatActivity {
 
     private ImageView back;
     private ImageView ivChoose, ivImage;
@@ -65,7 +65,7 @@ public class GetLoanUsingProduct extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_get_loan_using_product);
+        setContentView(R.layout.activity_add_product_to_get_loan);
         back = findViewById(R.id.img_btn_back_get_loan);
         try {
             permission = new PermissionManager() {
@@ -99,7 +99,7 @@ public class GetLoanUsingProduct extends AppCompatActivity {
                         {
                             Log.e(TAG, "onItemSelected: " + parent.getId());
                             selectedCondition = parent.getItemAtPosition(position).toString();
-//                            Toast.makeText(GetLoanUsingProduct.this,
+//                            Toast.makeText(AddProductToGetLoan.this,
 //                                    "ID: " + parent.getItemIdAtPosition(position),
 //                                    Toast.LENGTH_SHORT).show();
                             Log.e(TAG, "onItemSelected: selected" + selectedCondition);
@@ -119,7 +119,7 @@ public class GetLoanUsingProduct extends AppCompatActivity {
                         {
                             Log.e(TAG, "onItemSelected: " + parent.getId());
                             selectedType = parent.getItemAtPosition(position).toString();
-//                            Toast.makeText(GetLoanUsingProduct.this,
+//                            Toast.makeText(AddProductToGetLoan.this,
 //                                    "ID: " + parent.getItemIdAtPosition(position),
 //                                    Toast.LENGTH_SHORT).show();
                             Log.e(TAG, "onItemSelected: selected" + selectedType);
@@ -139,7 +139,7 @@ public class GetLoanUsingProduct extends AppCompatActivity {
                 String condition = String.valueOf(selectedCondition);
                 String type = String.valueOf(selectedType);
                 if (type.equals("Select Product Type")) {
-                    Toast.makeText(GetLoanUsingProduct.this,
+                    Toast.makeText(AddProductToGetLoan.this,
                             "Select Product Type", Toast.LENGTH_SHORT).show();
                     spinnerLoanProductType.requestFocus();
                 }
@@ -158,7 +158,7 @@ public class GetLoanUsingProduct extends AppCompatActivity {
                     loanProductDetails.requestFocus();
                 }
                 else if (type.equals("Select Product Condition")) {
-                    Toast.makeText(GetLoanUsingProduct.this,
+                    Toast.makeText(AddProductToGetLoan.this,
                             "Select Product Condition", Toast.LENGTH_SHORT).show();
                     spinnerLoanProductType.requestFocus();
                 }
@@ -175,8 +175,8 @@ public class GetLoanUsingProduct extends AppCompatActivity {
             }
             });
             new CroperinoConfig("IMG_" + System.currentTimeMillis() + ".jpg", "/MGXChange/Pictures", "/sdcard/MGXChange/Pictures");
-            CroperinoFileUtil.verifyStoragePermissions(GetLoanUsingProduct.this);
-            CroperinoFileUtil.setupDirectory(GetLoanUsingProduct.this);
+            CroperinoFileUtil.verifyStoragePermissions(AddProductToGetLoan.this);
+            CroperinoFileUtil.setupDirectory(AddProductToGetLoan.this);
 
             //image choose
             ivChoose.setOnClickListener(v -> {
@@ -184,14 +184,14 @@ public class GetLoanUsingProduct extends AppCompatActivity {
                     if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) != getPackageManager().PERMISSION_GRANTED) {
                         ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
                         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == getPackageManager().PERMISSION_GRANTED) {
-                            new SweetAlertDialog(GetLoanUsingProduct.this, SweetAlertDialog.WARNING_TYPE)
+                            new SweetAlertDialog(AddProductToGetLoan.this, SweetAlertDialog.WARNING_TYPE)
                                     .setTitleText("Select Image or Capture")
                                     .setConfirmText("Gallery")
                                     .setConfirmClickListener( new SweetAlertDialog.OnSweetClickListener() {
                                         @Override
                                         public void onClick(SweetAlertDialog sweetAlertDialog) {
                                             sweetAlertDialog.dismissWithAnimation();
-                                            Croperino.prepareGallery(GetLoanUsingProduct.this);
+                                            Croperino.prepareGallery(AddProductToGetLoan.this);
                                         }
                                     })
                                     .setCancelText("Camera")
@@ -199,7 +199,7 @@ public class GetLoanUsingProduct extends AppCompatActivity {
                                         @Override
                                         public void onClick(SweetAlertDialog sweetAlertDialog) {
                                             sweetAlertDialog.dismissWithAnimation();
-                                            Croperino.prepareCamera(GetLoanUsingProduct.this);
+                                            Croperino.prepareCamera(AddProductToGetLoan.this);
                                         }
                                     })
                                     .show();
@@ -207,7 +207,7 @@ public class GetLoanUsingProduct extends AppCompatActivity {
 
                         }
                     } else {
-                        new SweetAlertDialog(GetLoanUsingProduct.this, SweetAlertDialog.WARNING_TYPE)
+                        new SweetAlertDialog(AddProductToGetLoan.this, SweetAlertDialog.WARNING_TYPE)
                                 .setTitleText("Select Image or Capture")
                                 .setConfirmText("Gallery")
                                         .setConfirmClickListener(
@@ -215,7 +215,7 @@ public class GetLoanUsingProduct extends AppCompatActivity {
                                     @Override
                                     public void onClick(SweetAlertDialog sweetAlertDialog) {
                                         sweetAlertDialog.dismissWithAnimation();
-                                        Croperino.prepareGallery(GetLoanUsingProduct.this);
+                                        Croperino.prepareGallery(AddProductToGetLoan.this);
                                     }
                                 })
                                 .setCancelText("Camera")
@@ -223,7 +223,7 @@ public class GetLoanUsingProduct extends AppCompatActivity {
                                     @Override
                                     public void onClick(SweetAlertDialog sweetAlertDialog) {
                                         sweetAlertDialog.dismissWithAnimation();
-                                        Croperino.prepareCamera(GetLoanUsingProduct.this);
+                                        Croperino.prepareCamera(AddProductToGetLoan.this);
                                     }
                                 })
                                 .show();
@@ -298,7 +298,7 @@ public class GetLoanUsingProduct extends AppCompatActivity {
 
                         } catch (Exception e) {
                             // try {
-                            new SweetAlertDialog(GetLoanUsingProduct.this,
+                            new SweetAlertDialog(AddProductToGetLoan.this,
                                     SweetAlertDialog.ERROR_TYPE)
                                     .setTitleText("Exception...")
                                     .setContentText(e.toString())
@@ -312,7 +312,7 @@ public class GetLoanUsingProduct extends AppCompatActivity {
                         public void onErrorResponse(VolleyError error) {
                             Log.e(TAG, "onErrorResponse: " + error.toString());
                             progressDialog.dismiss();
-                            new SweetAlertDialog(GetLoanUsingProduct.this, SweetAlertDialog.ERROR_TYPE)
+                            new SweetAlertDialog(AddProductToGetLoan.this, SweetAlertDialog.ERROR_TYPE)
                                     .setTitleText("Exception...")
                                     .setContentText("" + error.toString())
                                     .show();
@@ -320,7 +320,7 @@ public class GetLoanUsingProduct extends AppCompatActivity {
 
                         }
                     });
-            MyNetwork.getInstance(GetLoanUsingProduct.this).addToRequestQueue(insertRequest);
+            MyNetwork.getInstance(AddProductToGetLoan.this).addToRequestQueue(insertRequest);
 
         } catch (Exception ex) {
             Log.e(TAG, "insertProductRecord: " + ex.toString());
@@ -330,7 +330,7 @@ public class GetLoanUsingProduct extends AppCompatActivity {
 
     //set up progress dialogue
     private void setupProgressDialog() {
-        progressDialog = new ProgressDialog(GetLoanUsingProduct.this);
+        progressDialog = new ProgressDialog(AddProductToGetLoan.this);
         progressDialog.setTitle("Adding Product...");
         progressDialog.setMessage("Please wait while we are uploading your product");
         progressDialog.setCancelable(false);
@@ -364,16 +364,16 @@ public class GetLoanUsingProduct extends AppCompatActivity {
                      Activity Context, Image is Scalable or Not,
                       Aspect Ratio X, Aspect Ratio Y, Button Bar Color, Background Color */
                     Croperino.runCropImage(CroperinoFileUtil.getTempFile(),
-                            GetLoanUsingProduct.this, true, 1,
+                            AddProductToGetLoan.this, true, 1,
                             1, R.color.gray, R.color.gray_variant);
                     mainImageUri = "Success";
                 }
                 break;
             case CroperinoConfig.REQUEST_PICK_FILE:
                 if (resultCode == Activity.RESULT_OK) {
-                    CroperinoFileUtil.newGalleryFile(data, GetLoanUsingProduct.this);
+                    CroperinoFileUtil.newGalleryFile(data, AddProductToGetLoan.this);
                     Croperino.runCropImage(CroperinoFileUtil.getTempFile(),
-                            GetLoanUsingProduct.this, true,
+                            AddProductToGetLoan.this, true,
                             0, 0, R.color.gray, R.color.gray_variant);
                     mainImageUri = "Success";
                 }

@@ -26,14 +26,14 @@ public class LoanOrSellSelection extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        mBinding.btnGetLoan.setOnClickListener((View.OnClickListener) view1 -> {
-                    Intent i = new Intent(getApplicationContext(), GetLoanUsingProduct.class);
+        mBinding.btnGetLoan.setOnClickListener(view1 -> {
+                    Intent i = new Intent(getApplicationContext(), AddProductToGetLoan.class);
                     startActivity(i);
                 }
         );
 
         mBinding.btnSellProduct.setOnClickListener(view2 -> {
-            Intent i = new Intent(getApplicationContext(), Dashboard.class);
+            Intent i = new Intent(getApplicationContext(), AddProductToSell.class);
             startActivity(i);
         });
 
