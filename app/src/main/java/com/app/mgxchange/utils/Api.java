@@ -1,6 +1,7 @@
 package com.app.mgxchange.utils;
 
 import com.app.mgxchange.models.ActiveLoanProductListResponse;
+import com.app.mgxchange.models.ActiveSellProductListResponse;
 import com.app.mgxchange.models.LoginUserResponse;
 import com.app.mgxchange.models.RegisterUserResponse;
 
@@ -29,9 +30,16 @@ public interface Api {
             @Field("email") String email,
             @Field("password") String password
     );
+
     @FormUrlEncoded
     @POST("fetch-loan-products-active-user.php")
     Call<ActiveLoanProductListResponse> getLoanProductList(
+            @Field("userid") String userID
+    );
+
+    @FormUrlEncoded
+    @POST("fetch-sell-products-active-user.php")
+    Call<ActiveSellProductListResponse> getSellProductList(
             @Field("userid") String userID
     );
 

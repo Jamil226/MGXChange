@@ -48,7 +48,7 @@ public class ItemsList extends AppCompatActivity {
             mBinding.tvSellProductsList.setBackgroundColor(getApplicationContext().getResources().getColor(R.color.white));
             mBinding.tvLoanProductsList.setTextColor(Color.WHITE);
             mBinding.tvSellProductsList.setTextColor(getApplicationContext().getResources().getColor(R.color.colorPrimary));
-            fragment = new ActiveSellProducts();
+            fragment = new ActiveLoanProducts();
             fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.flProducts, fragment);
             fragmentTransaction.commit();
@@ -60,7 +60,7 @@ public class ItemsList extends AppCompatActivity {
             mBinding.tvLoanProductsList.setBackgroundColor(getApplicationContext().getResources().getColor(R.color.white));
             mBinding.tvLoanProductsList.setTextColor(getApplicationContext().getResources().getColor(R.color.colorPrimary));
 
-            fragment = new ActiveLoanProducts();
+            fragment = new ActiveSellProducts();
             fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.flProducts, fragment);
             fragmentTransaction.commit();
