@@ -53,6 +53,7 @@ public class UserActiveSellProductsAdapter
         Glide.with(context).load(url)
                 .placeholder(R.drawable.image_default)
                 .into(holder.productImage);
+
         String productID = mData.get(i).getProductID();
         String productName = mData.get(i).getProductType();
         String productDetails = mData.get(i).getProductDetails();
