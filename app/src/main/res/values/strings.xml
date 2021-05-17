@@ -26,6 +26,7 @@
     <string name="last_name">Last Name</string>
     <string name="contact">Contact Number</string>
     <string name="update_profile_user">Update Profile</string>
+    <string name="update_profile_image">Change Picture</string>
     <string name="dummy_contact">+92 300 1234567</string>
     <string name="address">Address</string>
     <string name="dummy_address">House No 87 R Block 57000, Punjab, Pakistan</string>

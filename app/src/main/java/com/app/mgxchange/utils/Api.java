@@ -4,6 +4,8 @@ import com.app.mgxchange.models.ActiveLoanProductListResponse;
 import com.app.mgxchange.models.ActiveSellProductListResponse;
 import com.app.mgxchange.models.LoginUserResponse;
 import com.app.mgxchange.models.RegisterUserResponse;
+import com.app.mgxchange.models.UserAddLoanProductResponse;
+import com.app.mgxchange.models.UserAddSellProductResponse;
 import com.app.mgxchange.models.UserProfileImageResponse;
 
 import retrofit2.Call;
@@ -51,7 +53,33 @@ public interface Api {
             @Field("encoded_image") String encodedImage
     );
 
+    @FormUrlEncoded
+    @POST("add-sell-product-user.php")
+    Call<UserAddSellProductResponse> addSellProduct(
+            @Field("user_id") String userID,
+            @Field("product_name") String productName,
+            @Field("product_year") String productYear,
+            @Field("product_serial") String productSerial,
+            @Field("product_condition") String productCondition,
+            @Field("asked_amount") String askedAmount,
+            @Field("contact_number") String contactNumber,
+            @Field("product_details") String productDetails,
+            @Field("encoded_image") String productImage
+    );
 
+    @FormUrlEncoded
+    @POST("add-loan-product-user.php")
+    Call<UserAddLoanProductResponse> addLoanProduct(
+            @Field("user_id") String userID,
+            @Field("product_name") String productName,
+            @Field("product_year") String productYear,
+            @Field("product_serial") String productSerial,
+            @Field("product_condition") String productCondition,
+            @Field("asked_amount") String askedAmount,
+            @Field("contact_number") String contactNumber,
+            @Field("product_details") String productDetails,
+            @Field("encoded_image") String productImage
+    );
 //    @GET("fetch-loan-products-active.php")
 //    Call<ActiveLoanProductListResponse> fetchAllActiveLoanProducts();
 //

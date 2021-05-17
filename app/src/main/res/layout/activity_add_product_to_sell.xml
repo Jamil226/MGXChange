@@ -174,7 +174,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/et_loan_product_details"
+                android:id="@+id/etProductDetails"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="30dp"
@@ -182,7 +182,7 @@
                 android:layout_marginRight="30dp"
                 android:background="@drawable/custom_et_all"
                 android:fontFamily="@font/sf_regular"
-                android:hint="Product Details"
+                android:hint="@string/complain_product_detail"
                 android:inputType="text"
                 android:padding="8dp"
                 android:textSize="18sp" />

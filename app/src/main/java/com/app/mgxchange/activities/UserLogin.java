@@ -30,7 +30,7 @@ public class UserLogin extends AppCompatActivity {
     Button signIn;
     EditText email, password;
     TextView forgotPassword, signUp;
-    private static final String TAG = "RiderLogin";
+    private static final String TAG = "UserLogin";
     UserSharedPrefManager userSharedPrefManager;
 
     @Override

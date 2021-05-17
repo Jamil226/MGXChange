@@ -19,20 +19,17 @@ public class LoanOrSellSelection extends AppCompatActivity {
         View view = mBinding.getRoot();
         setContentView(view);
 
-        mBinding.imgBtnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), Dashboard.class);
-                startActivity(i);
-            }
+        mBinding.imgBtnBack.setOnClickListener(viewImgBtnBack -> {
+            Intent i = new Intent(getApplicationContext(), Dashboard.class);
+            startActivity(i);
         });
-        mBinding.btnGetLoan.setOnClickListener(view1 -> {
+        mBinding.btnGetLoan.setOnClickListener(viewBtnGetLoan -> {
                     Intent i = new Intent(getApplicationContext(), AddProductToGetLoan.class);
                     startActivity(i);
                 }
         );
 
-        mBinding.btnSellProduct.setOnClickListener(view2 -> {
+        mBinding.btnSellProduct.setOnClickListener(viewBtnSellProduct -> {
             Intent i = new Intent(getApplicationContext(), AddProductToSell.class);
             startActivity(i);
         });
