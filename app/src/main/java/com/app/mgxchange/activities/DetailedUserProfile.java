@@ -32,7 +32,7 @@ public class DetailedUserProfile extends AppCompatActivity {
         String contact = userSharedPrefManager.getUser().getContact();
         String address = userSharedPrefManager.getUser().getAddress();
         String email = userSharedPrefManager.getUser().getEmail();
-//        String imagePath = userSharedPrefManager.getUser().getImagePath();
+        String imagePath = userSharedPrefManager.getUser().getImagePath();
 
         Log.d(TAG, "User ID = " + userID);
         Glide.with(getApplicationContext())

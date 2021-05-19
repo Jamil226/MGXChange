@@ -105,7 +105,7 @@
                 />
 
             <EditText
-                android:id="@+id/et_customer_complain_date"
+                android:id="@+id/et_product_year"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="30dp"

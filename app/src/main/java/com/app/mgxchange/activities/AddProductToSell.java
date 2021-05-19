@@ -34,10 +34,17 @@ public class AddProductToSell extends AppCompatActivity {
     private static final String TAG = "AddProductToSell";
     UserSharedPrefManager userSharedPrefManager;
     private final int IMAGE_REQUEST = 21;
+    private final int IMAGE_REQUEST_TWO = 22;
+    private final int IMAGE_REQUEST_THREE = 23;
+    private final int IMAGE_REQUEST_FOUR = 24;
+    private final int IMAGE_REQUEST_FIVE = 25;
+    private final int IMAGE_REQUEST_SIX = 26;
+    private final int IMAGE_REQUEST_SEVEN = 27;
     ActivityAddProductToSellBinding mBinding;
     String selectedType, selectedCondition;
-    String userID = "1";
-    private Bitmap bitmapImage;
+    String userID;
+    private Bitmap bitmapImage1, bitmapImage2, bitmapImage3,
+            bitmapImage4, bitmapImage5, bitmapImage6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +106,40 @@ public class AddProductToSell extends AppCompatActivity {
             startActivityForResult(intent, IMAGE_REQUEST);
         });
 
+
+        mBinding.ivProductImageChoose2.setOnClickListener(viewUploadImage2 -> {
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(intent, IMAGE_REQUEST_TWO);
+        });
+        mBinding.ivProductImageChoose3.setOnClickListener(viewUploadImage3 -> {
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(intent, IMAGE_REQUEST_THREE);
+        });
+
+        mBinding.ivProductImageChoose4.setOnClickListener(viewUploadImage4 -> {
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(intent, IMAGE_REQUEST_FOUR);
+        });
+
+        mBinding.ivProductImageChoose5.setOnClickListener(viewUploadImage5 -> {
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(intent, IMAGE_REQUEST_FIVE);
+        });
+        mBinding.ivProductImageChoose6.setOnClickListener(viewUploadImage6 -> {
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(intent, IMAGE_REQUEST_SIX);
+        });
+
         mBinding.btnSubmitProduct.setOnClickListener(viewBtnSubmitProduct -> {
             String productName = String.valueOf(selectedType);
             String productYear = mBinding.etProductYear.getText().toString();
@@ -133,13 +174,58 @@ public class AddProductToSell extends AppCompatActivity {
                 mBinding.etProductDetails.requestFocus();
             } else if (mBinding.ivProductImage1.getDrawable().getConstantState()
                     == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
-                Toast.makeText(AddProductToSell.this, "Select Product Image", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddProductToSell.this, "Select Product Image One", Toast.LENGTH_SHORT).show();
+            } else if (mBinding.ivProductImage2.getDrawable().getConstantState()
+                    == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
+                Toast.makeText(AddProductToSell.this, "Select Product Two", Toast.LENGTH_SHORT).show();
+            } else if (mBinding.ivProductImage3.getDrawable().getConstantState()
+                    == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
+                Toast.makeText(AddProductToSell.this, "Select Product Image Three", Toast.LENGTH_SHORT).show();
+            } else if (mBinding.ivProductImage4.getDrawable().getConstantState()
+                    == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
+                Toast.makeText(AddProductToSell.this, "Select Product Image Four", Toast.LENGTH_SHORT).show();
+            } else if (mBinding.ivProductImage5.getDrawable().getConstantState()
+                    == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
+                Toast.makeText(AddProductToSell.this, "Select Product Image Five", Toast.LENGTH_SHORT).show();
+            } else if (mBinding.ivProductImage6.getDrawable().getConstantState()
+                    == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
+                Toast.makeText(AddProductToSell.this, "Select Product Image Six", Toast.LENGTH_SHORT).show();
             } else {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                bitmapImage.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
-                byte[] imageInByte = byteArrayOutputStream.toByteArray();
-                String encodedImage = Base64.encodeToString(imageInByte, Base64.DEFAULT);
-                Log.d(TAG, "Image Encoded" + encodedImage);
+                bitmapImage1.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
+                byte[] image1InByte = byteArrayOutputStream.toByteArray();
+                String encodedImage1 = Base64.encodeToString(image1InByte, Base64.DEFAULT);
+                Log.d(TAG, "Image Encoded 1 :" + encodedImage1);
+
+                ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
+                bitmapImage2.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream2);
+                byte[] image2InByte = byteArrayOutputStream2.toByteArray();
+                String encodedImage2 = Base64.encodeToString(image2InByte, Base64.DEFAULT);
+                Log.d(TAG, "Image Encoded 2 :" + encodedImage2);
+
+                ByteArrayOutputStream byteArrayOutputStream3 = new ByteArrayOutputStream();
+                bitmapImage3.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream3);
+                byte[] image3InByte = byteArrayOutputStream3.toByteArray();
+                String encodedImage3 = Base64.encodeToString(image3InByte, Base64.DEFAULT);
+                Log.d(TAG, "Image Encoded 3 :" + encodedImage3);
+
+                ByteArrayOutputStream byteArrayOutputStream4 = new ByteArrayOutputStream();
+                bitmapImage4.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream4);
+                byte[] image4InByte = byteArrayOutputStream4.toByteArray();
+                String encodedImage4 = Base64.encodeToString(image4InByte, Base64.DEFAULT);
+                Log.d(TAG, "Image Encoded 4 :" + encodedImage4);
+
+                ByteArrayOutputStream byteArrayOutputStream5 = new ByteArrayOutputStream();
+                bitmapImage5.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream5);
+                byte[] image5InByte = byteArrayOutputStream5.toByteArray();
+                String encodedImage5 = Base64.encodeToString(image5InByte, Base64.DEFAULT);
+                Log.d(TAG, "Image Encoded 5 :" + encodedImage5);
+
+                ByteArrayOutputStream byteArrayOutputStream6 = new ByteArrayOutputStream();
+                bitmapImage6.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream6);
+                byte[] image6InByte = byteArrayOutputStream6.toByteArray();
+                String encodedImage6 = Base64.encodeToString(image6InByte, Base64.DEFAULT);
+                Log.d(TAG, "Image Encoded 6 :" + encodedImage6);
 
                 final ProgressDialog progressDialog = new ProgressDialog(this);
                 progressDialog.setTitle("Uploading Product Data");
@@ -151,7 +237,9 @@ public class AddProductToSell extends AppCompatActivity {
                         .getApi()
                         .addSellProduct(userID, productName, productYear,
                                 productSerial, productCondition, askedAmount,
-                                contactNumber, productDetails, encodedImage);
+                                contactNumber, productDetails, encodedImage1,
+                                encodedImage2, encodedImage3, encodedImage4,
+                                encodedImage5, encodedImage6);
                 call.enqueue(new Callback<UserAddSellProductResponse>() {
                     @Override
                     public void onResponse(Call<UserAddSellProductResponse> call,
@@ -185,11 +273,56 @@ public class AddProductToSell extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode,
                                     @Nullable @org.jetbrains.annotations.Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
+        if (requestCode == IMAGE_REQUEST && resultCode == RESULT_OK && data != null){
             Uri path1 = data.getData();
             try {
-                bitmapImage = MediaStore.Images.Media.getBitmap(getContentResolver(), path1);
-                mBinding.ivProductImage1.setImageBitmap(bitmapImage);
+                bitmapImage1 = MediaStore.Images.Media.getBitmap(getContentResolver(), path1);
+                mBinding.ivProductImage1.setImageBitmap(bitmapImage1);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (requestCode == IMAGE_REQUEST_TWO && resultCode == RESULT_OK && data != null){
+            Uri path2 = data.getData();
+            try {
+                bitmapImage2 = MediaStore.Images.Media.getBitmap(getContentResolver(), path2);
+                mBinding.ivProductImage2.setImageBitmap(bitmapImage2);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (requestCode == IMAGE_REQUEST_THREE && resultCode == RESULT_OK && data != null){
+            Uri path3 = data.getData();
+            try {
+                bitmapImage3 = MediaStore.Images.Media.getBitmap(getContentResolver(), path3);
+                mBinding.ivProductImage3.setImageBitmap(bitmapImage3);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (requestCode == IMAGE_REQUEST_FOUR && resultCode == RESULT_OK && data != null){
+            Uri path4 = data.getData();
+            try {
+                bitmapImage4 = MediaStore.Images.Media.getBitmap(getContentResolver(), path4);
+                mBinding.ivProductImage4.setImageBitmap(bitmapImage4);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (requestCode == IMAGE_REQUEST_FIVE && resultCode == RESULT_OK && data != null){
+            Uri path5 = data.getData();
+            try {
+                bitmapImage5 = MediaStore.Images.Media.getBitmap(getContentResolver(), path5);
+                mBinding.ivProductImage5.setImageBitmap(bitmapImage5);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (requestCode == IMAGE_REQUEST_SIX && resultCode == RESULT_OK && data != null){
+            Uri path6 = data.getData();
+            try {
+                bitmapImage6 = MediaStore.Images.Media.getBitmap(getContentResolver(), path6);
+                mBinding.ivProductImage6.setImageBitmap(bitmapImage6);
             } catch (IOException e) {
                 e.printStackTrace();
             }

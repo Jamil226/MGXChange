@@ -53,7 +53,7 @@
     <string name="post_product">Post</string>
     <string name="product_header_product_details">Product Details</string>
     <string name="product_image_header">Product Images</string>
-    <string name="product_image_text">Please upload all required five images.</string>
+    <string name="product_image_text">Please upload all required six images.</string>
     <string name="text_product_header">Provide the accurate details of the product here.</string>
     <string name="text_complain_header">Provide Details Of Product and Complain Details</string>
     <string name="complain_button">Submit</string>

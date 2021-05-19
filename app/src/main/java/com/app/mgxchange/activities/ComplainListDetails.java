@@ -24,7 +24,7 @@ public class ComplainListDetails extends AppCompatActivity {
         complainMessage = getIntent().getStringExtra("message");
         productName = getIntent().getStringExtra("product_name");
         contact = getIntent().getStringExtra("contact");
-        complainDate = getIntent().getStringExtra("date");
+        complainDate = getIntent().getStringExtra("complain_date");
         complainStatus = getIntent().getStringExtra("status");
         productDetail = getIntent().getStringExtra("product_details");
         if(complainStatus.equals("0")){
@@ -40,7 +40,8 @@ public class ComplainListDetails extends AppCompatActivity {
         mBinding.tvContact.setText(contact);
         mBinding.tvSerialNumber.setText(serialNo);
         mBinding.tvComplainProductName.setText(productName);
-        mBinding.imgBtnBack.setOnClickListener(view1 -> {
+
+        mBinding.imgBtnBack.setOnClickListener(viewImgBtnBack -> {
             Intent i = new Intent(getApplicationContext(), ComplainList.class);
             startActivity(i);
         });

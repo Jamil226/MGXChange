@@ -1,5 +1,6 @@
 package com.app.mgxchange.adapters;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -14,15 +15,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.mgxchange.R;
 import com.app.mgxchange.activities.ComplainListDetails;
-import com.app.mgxchange.models.ComplainListModel;
+import com.app.mgxchange.models.Complains;
 
 import java.util.List;
 
-public class ComplainListAdapter extends RecyclerView.Adapter<ComplainListAdapter.ViewHolder> {
-    private final List<ComplainListModel> mData;
+public class UserComplainsAdapter
+        extends RecyclerView.Adapter<UserComplainsAdapter.ViewHolder> {
+
+    private final List<Complains> mData;
     private final LayoutInflater mInflater;
     Context context;
-    public ComplainListAdapter(Context context, List<ComplainListModel> data) {
+
+    public UserComplainsAdapter(Context context, List<Complains> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.context = context;
@@ -34,39 +38,45 @@ public class ComplainListAdapter extends RecyclerView.Adapter<ComplainListAdapte
         View view = mInflater.inflate(R.layout.snipped_complain_list, viewGroup, false);
         return new ViewHolder(view);
     }
+
     @Override
-    public void onBindViewHolder(@NonNull final ComplainListAdapter.ViewHolder holder, final int i) {
+    public void onBindViewHolder(@NonNull final UserComplainsAdapter.ViewHolder holder, final int i) {
+        holder.productName.setText(mData.get(i).getProductType());
         holder.complainMessage.setText(mData.get(i).getComplainMessage());
-        holder.productName.setText(mData.get(i).getProductName());
         holder.moreDetails.setOnClickListener(v -> {
             Intent intent = new Intent(context, ComplainListDetails.class);
             intent.putExtra("complain_id", mData.get(i).getComplainID());
-            intent.putExtra("reference", mData.get(i).getReference());
+            intent.putExtra("reference", mData.get(i).getComplainReference());
             intent.putExtra("message", mData.get(i).getComplainMessage());
-            intent.putExtra("serial", mData.get(i).getSerialNo());
+            intent.putExtra("serial", mData.get(i).getSerialNumber());
             intent.putExtra("status", mData.get(i).getComplainStatus());
-            intent.putExtra("product_name", mData.get(i).getProductName());
-            intent.putExtra("date", mData.get(i).getComplainDate());
-            intent.putExtra("contact", mData.get(i).getContact());
-            intent.putExtra("product_details", mData.get(i).getProductDetail());
+            intent.putExtra("product_name", mData.get(i).getProductType());
+            intent.putExtra("complain_date", mData.get(i).getComplainDate());
+            intent.putExtra("contact", mData.get(i).getUserContact());
+            intent.putExtra("product_details", mData.get(i).getProductDetails());
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
         });
+        //Toast.makeText(context, "ID : " + complainID, Toast.LENGTH_SHORT).show();
     }
+
     @Override
     public int getItemCount() {
         return mData.size();
     }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView productName, complainMessage;
         Button moreDetails;
+        TextView productName, complainMessage;
         CardView cardView;
 
         ViewHolder(View itemView) {
             super(itemView);
+            moreDetails = itemView.findViewById(R.id.btn_complain_list_more_details);
             productName = itemView.findViewById(R.id.tv_complain_list_item_type);
             complainMessage = itemView.findViewById(R.id.tv_complain_list_complain_message);
-            moreDetails = itemView.findViewById(R.id.btn_complain_list_more_details);
             cardView = itemView.findViewById(R.id.card_user_complain);
         }
     }
+
 }

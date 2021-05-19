@@ -2,9 +2,11 @@ package com.app.mgxchange.utils;
 
 import com.app.mgxchange.models.ActiveLoanProductListResponse;
 import com.app.mgxchange.models.ActiveSellProductListResponse;
+import com.app.mgxchange.models.ComplainListResponse;
 import com.app.mgxchange.models.LoginUserResponse;
 import com.app.mgxchange.models.RegisterUserResponse;
 import com.app.mgxchange.models.UserAddLoanProductResponse;
+import com.app.mgxchange.models.UserAddProductComplainResponse;
 import com.app.mgxchange.models.UserAddSellProductResponse;
 import com.app.mgxchange.models.UserProfileImageResponse;
 
@@ -64,7 +66,13 @@ public interface Api {
             @Field("asked_amount") String askedAmount,
             @Field("contact_number") String contactNumber,
             @Field("product_details") String productDetails,
-            @Field("encoded_image") String productImage
+            @Field("encoded_image1") String productImage1,
+            @Field("encoded_image2") String productImage2,
+            @Field("encoded_image3") String productImage3,
+            @Field("encoded_image4") String productImage4,
+            @Field("encoded_image5") String productImage5,
+            @Field("encoded_image6") String productImage6
+
     );
 
     @FormUrlEncoded
@@ -78,8 +86,33 @@ public interface Api {
             @Field("asked_amount") String askedAmount,
             @Field("contact_number") String contactNumber,
             @Field("product_details") String productDetails,
-            @Field("encoded_image") String productImage
+            @Field("encoded_image1") String productImage1,
+            @Field("encoded_image2") String productImage2,
+            @Field("encoded_image3") String productImage3,
+            @Field("encoded_image4") String productImage4,
+            @Field("encoded_image5") String productImage5,
+            @Field("encoded_image6") String productImage6
     );
+
+    @FormUrlEncoded
+    @POST("add-product-complain-user.php")
+    Call<UserAddProductComplainResponse> addProductComplain(
+            @Field("user_id") String userID,
+            @Field("product_name") String productName,
+            @Field("product_serial") String productSerial,
+            @Field("product_year") String productYear,
+            @Field("contact_number") String contactNumber,
+            @Field("product_details") String productDetails,
+            @Field("complain_message") String complainMessage
+
+    );
+
+    @FormUrlEncoded
+    @POST("complain-list-user.php")
+    Call<ComplainListResponse> getComplainList(
+            @Field("user_id") String userID
+    );
+
 //    @GET("fetch-loan-products-active.php")
 //    Call<ActiveLoanProductListResponse> fetchAllActiveLoanProducts();
 //
