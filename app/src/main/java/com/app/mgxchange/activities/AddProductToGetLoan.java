@@ -3,6 +3,7 @@ package com.app.mgxchange.activities;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -96,6 +97,21 @@ public class AddProductToGetLoan extends AppCompatActivity {
                 }
         );
 
+        BitmapDrawable drawable2 = (BitmapDrawable) mBinding.ivProductImage2.getDrawable();
+        bitmapImage2 = drawable2.getBitmap();
+
+        BitmapDrawable drawable3 = (BitmapDrawable) mBinding.ivProductImage3.getDrawable();
+        bitmapImage3 = drawable3.getBitmap();
+
+        BitmapDrawable drawable4 = (BitmapDrawable) mBinding.ivProductImage4.getDrawable();
+        bitmapImage4 = drawable4.getBitmap();
+
+        BitmapDrawable drawable5 = (BitmapDrawable) mBinding.ivProductImage5.getDrawable();
+        bitmapImage5 = drawable5.getBitmap();
+
+        BitmapDrawable drawable6 = (BitmapDrawable) mBinding.ivProductImage6.getDrawable();
+        bitmapImage6 = drawable6.getBitmap();
+
         mBinding.ivProductImageChoose1.setOnClickListener(viewUploadImage1 -> {
             Intent intent = new Intent();
             intent.setType("image/*");
@@ -175,22 +191,24 @@ public class AddProductToGetLoan extends AppCompatActivity {
             } else if (mBinding.ivProductImage1.getDrawable().getConstantState()
                     == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
                 Toast.makeText(AddProductToGetLoan.this, "Select Product Image One", Toast.LENGTH_SHORT).show();
-            } else if (mBinding.ivProductImage2.getDrawable().getConstantState()
-                    == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
-                Toast.makeText(AddProductToGetLoan.this, "Select Product Two", Toast.LENGTH_SHORT).show();
-            } else if (mBinding.ivProductImage3.getDrawable().getConstantState()
-                    == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
-                Toast.makeText(AddProductToGetLoan.this, "Select Product Image Three", Toast.LENGTH_SHORT).show();
-            } else if (mBinding.ivProductImage4.getDrawable().getConstantState()
-                    == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
-                Toast.makeText(AddProductToGetLoan.this, "Select Product Image Four", Toast.LENGTH_SHORT).show();
-            } else if (mBinding.ivProductImage5.getDrawable().getConstantState()
-                    == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
-                Toast.makeText(AddProductToGetLoan.this, "Select Product Image Five", Toast.LENGTH_SHORT).show();
-            } else if (mBinding.ivProductImage6.getDrawable().getConstantState()
-                    == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
-                Toast.makeText(AddProductToGetLoan.this, "Select Product Image Six", Toast.LENGTH_SHORT).show();
-            } else {
+            }
+//            else if (mBinding.ivProductImage2.getDrawable().getConstantState()
+//                    == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
+//                Toast.makeText(AddProductToGetLoan.this, "Select Product Two", Toast.LENGTH_SHORT).show();
+//            } else if (mBinding.ivProductImage3.getDrawable().getConstantState()
+//                    == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
+//                Toast.makeText(AddProductToGetLoan.this, "Select Product Image Three", Toast.LENGTH_SHORT).show();
+//            } else if (mBinding.ivProductImage4.getDrawable().getConstantState()
+//                    == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
+//                Toast.makeText(AddProductToGetLoan.this, "Select Product Image Four", Toast.LENGTH_SHORT).show();
+//            } else if (mBinding.ivProductImage5.getDrawable().getConstantState()
+//                    == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
+//                Toast.makeText(AddProductToGetLoan.this, "Select Product Image Five", Toast.LENGTH_SHORT).show();
+//            } else if (mBinding.ivProductImage6.getDrawable().getConstantState()
+//                    == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
+//                Toast.makeText(AddProductToGetLoan.this, "Select Product Image Six", Toast.LENGTH_SHORT).show();
+//            }
+            else {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 bitmapImage1.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
                 byte[] image1InByte = byteArrayOutputStream.toByteArray();
