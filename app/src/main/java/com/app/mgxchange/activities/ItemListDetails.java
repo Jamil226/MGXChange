@@ -6,9 +6,11 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.app.mgxchange.R;
 import com.app.mgxchange.databinding.ActivityItemListDetailsBinding;
-import com.bumptech.glide.Glide;
+import com.denzcoskun.imageslider.models.SlideModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ItemListDetails extends AppCompatActivity {
 
@@ -18,6 +20,8 @@ public class ItemListDetails extends AppCompatActivity {
     String productName, productDetails, productYear, productUploadingDate, productPrice;
     private String imgOne, imgTwo, imgThree, imgFour, imgFive;
     private String productStatus;
+
+    List<SlideModel> slideModels;
     private ActivityItemListDetailsBinding mBinding;
 
     @Override
@@ -42,12 +46,22 @@ public class ItemListDetails extends AppCompatActivity {
         imgFive = getIntent().getStringExtra("image_five");
         productStatus = getIntent().getStringExtra("product_status");
 
+        slideModels = new ArrayList<>();
+        slideModels.add(new SlideModel(imgOne, productName));
+        slideModels.add(new SlideModel(imgTwo, productName));
+        slideModels.add(new SlideModel(imgThree, productName));
+        slideModels.add(new SlideModel(imgFour, productName));
+        slideModels.add(new SlideModel(imgFive, productName));
+        mBinding.ivProductImage.setImageList(slideModels, true);
+
         mBinding.tvProductName.setText(productName);
         mBinding.tvProductPrice.setText("$" + productPrice);
         mBinding.tvProductDetails.setText(productDetails);
-        Glide.with(getApplicationContext()).load(imgOne)
-                .placeholder(R.drawable.image_default)
-                .into(mBinding.ivProductImage);
+
+//
+//        Glide.with(getApplicationContext()).load(imgOne)
+//                .placeholder(R.drawable.image_default)
+//                .into(mBinding.ivProductImage);
 
         if (productStatus.equals("1")){
             mBinding.tvProductStatus.setText("Congratulations! Your Product Have Been Approved.");
