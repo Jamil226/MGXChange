@@ -55,7 +55,7 @@ public class ItemListDetails extends AppCompatActivity {
         mBinding.ivProductImage.setImageList(slideModels, true);
 
         mBinding.tvProductName.setText(productName);
-        mBinding.tvProductPrice.setText("$" + productPrice);
+        mBinding.tvProductPrice.setText("ZAR " + productPrice);
         mBinding.tvProductDetails.setText(productDetails);
 
 //

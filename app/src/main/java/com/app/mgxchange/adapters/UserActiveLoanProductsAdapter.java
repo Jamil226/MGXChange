@@ -47,7 +47,7 @@ public class UserActiveLoanProductsAdapter
     public void onBindViewHolder(@NonNull final UserActiveLoanProductsAdapter.ViewHolder holder,
                                  final int i) {
         holder.productName.setText(mData.get(i).getProductType());
-        holder.productPice.setText("$" + mData.get(i).getProductPrice());
+        holder.productPice.setText("ZAR " + mData.get(i).getProductPrice());
         holder.productDetails.setText(mData.get(i).getProductDetails());
         String url = ApiUrls.imgParentUrl + mData.get(i).getImageOne();
         Glide.with(context).load(url)

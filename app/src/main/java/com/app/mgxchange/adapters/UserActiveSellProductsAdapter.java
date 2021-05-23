@@ -47,7 +47,7 @@ public class UserActiveSellProductsAdapter
     public void onBindViewHolder(@NonNull final UserActiveSellProductsAdapter.ViewHolder holder,
                                  final int i) {
         holder.productName.setText(mData.get(i).getProductType());
-        holder.productPrice.setText("$" + mData.get(i).getProductPrice());
+        holder.productPrice.setText("ZAR " + mData.get(i).getProductPrice());
         holder.productDetails.setText(mData.get(i).getProductDetails());
         String url = ApiUrls.imgParentUrl + mData.get(i).getImageOne();
         Glide.with(context).load(url)

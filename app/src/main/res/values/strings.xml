@@ -62,7 +62,7 @@
     <string name="complain_item_serial_or_imei">Serial or IMEI Number</string>
     <string name="complain_item_manufacturing_year">Manufacturing Year</string>
     <string name="complain_contact_number">Contact Number</string>
-    <string name="complain_product_detail">Product Details</string>
+    <string name="complain_product_detail">Product Model</string>
     <string name="complain_complain_detail">Complain Details</string>
     <string name="complain_date">Complain Date</string>
     <string name="complain_status">Complain Status</string>
@@ -96,7 +96,7 @@
     <string-array name="item_condition">
         <item>Select Condition</item>
         <item>New</item>
-        <item>Old</item>
+        <item>Used</item>
     </string-array>
     <string-array name="item_types">
         <item>Select Product</item>
