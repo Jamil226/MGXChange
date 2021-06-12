@@ -1,6 +1,7 @@
 package com.app.mgxchange.activities;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -16,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.mgxchange.R;
@@ -96,6 +98,51 @@ public class AddProductToGetLoan extends AppCompatActivity {
                     }
                 }
         );
+
+        mBinding.tvProductTerms.setOnClickListener(viewTvProductTermsListener -> {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(AddProductToGetLoan.this);
+            builder.setTitle("Terms and Conditions");
+
+            builder.setMessage("- By accepting our offer you agree that your valuable(s) will be used as collateral for a short-term loan.\n" +
+                    "- After item evaluation is accepted by client, you therefore give MGXCHANGE leverage over your valuable(s) until the Loan is paid up.\n" +
+                    "- All loan are repayable with a fixed 24% interest rate of the amount MGXCHANGE paid out to you.\n" +
+                    "- Your valuable(s) will be kept safely the exact way it was received within the estimated Loan period, MGXCHANGE do not temper, display or remove your items from our secured storage during this period, all valuable(s) are returned same condition as it was received.\n" +
+                    "- MGXCHANGE is not liable for any damage that may occur during this period of storage\n" +
+                    "- MGXCHANGE offer 30 days short term loan, repayment of loaned amount plus 24% interest is required to be paid on or before the repayment set date, a grace period of 3days is given, please be advised once loan repayment set date and grace period has elapsed, no negotiation will be entered into, therefore your valuable(s) will be defaulted, become property of MGXCHANGE, whereas repayment extension can be made, provided interest on loaned amount is paid on or before due date.\n" +
+                    "- Only 3 payment extension will be accepted, failure to retrieve valuables on the third repayment extension month will result to default of valuables, It will become property of MGXCHANGE.\n" +
+                    "\n" +
+                    "This is a formal and legal agreement, please select accept to processed.\n" +
+                    "\n" +
+                    "I have read, understood and I agree with the terms and condition of this Loan.");
+
+            builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+                public void onClick(DialogInterface dialog, int which) {
+                    mBinding.chkProductTerms.setChecked(true);
+                    Toast.makeText(AddProductToGetLoan.this,
+                            "Thanks for Accepting Product Terms and Conditions",
+                            Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                }
+            });
+
+            builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    mBinding.chkProductTerms.setChecked(false);
+                    Toast.makeText(AddProductToGetLoan.this,
+                            "You are Not Agreed to our Terms and Conditions",
+                            Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                }
+            });
+
+            AlertDialog alert = builder.create();
+            alert.show();
+
+        });
 
         BitmapDrawable drawable2 = (BitmapDrawable) mBinding.ivProductImage2.getDrawable();
         bitmapImage2 = drawable2.getBitmap();
@@ -191,6 +238,10 @@ public class AddProductToGetLoan extends AppCompatActivity {
             } else if (mBinding.ivProductImage1.getDrawable().getConstantState()
                     == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
                 Toast.makeText(AddProductToGetLoan.this, "Select Product Image One", Toast.LENGTH_SHORT).show();
+            } else if(!mBinding.chkProductTerms.isChecked()){
+                Toast.makeText(AddProductToGetLoan.this,
+                        "Please accept Product Terms and Conditions",
+                        Toast.LENGTH_SHORT).show();
             }
 //            else if (mBinding.ivProductImage2.getDrawable().getConstantState()
 //                    == getResources().getDrawable(R.drawable.image_default).getConstantState()) {
@@ -291,25 +342,25 @@ public class AddProductToGetLoan extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode,
                                     @Nullable @org.jetbrains.annotations.Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == IMAGE_REQUEST && resultCode == RESULT_OK && data != null){
-                Uri path1 = data.getData();
-                try {
-                    bitmapImage1 = MediaStore.Images.Media.getBitmap(getContentResolver(), path1);
-                    mBinding.ivProductImage1.setImageBitmap(bitmapImage1);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        if (requestCode == IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
+            Uri path1 = data.getData();
+            try {
+                bitmapImage1 = MediaStore.Images.Media.getBitmap(getContentResolver(), path1);
+                mBinding.ivProductImage1.setImageBitmap(bitmapImage1);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        if (requestCode == IMAGE_REQUEST_TWO && resultCode == RESULT_OK && data != null){
-                Uri path2 = data.getData();
-                try {
-                    bitmapImage2 = MediaStore.Images.Media.getBitmap(getContentResolver(), path2);
-                    mBinding.ivProductImage2.setImageBitmap(bitmapImage2);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        }
+        if (requestCode == IMAGE_REQUEST_TWO && resultCode == RESULT_OK && data != null) {
+            Uri path2 = data.getData();
+            try {
+                bitmapImage2 = MediaStore.Images.Media.getBitmap(getContentResolver(), path2);
+                mBinding.ivProductImage2.setImageBitmap(bitmapImage2);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        if (requestCode == IMAGE_REQUEST_THREE && resultCode == RESULT_OK && data != null){
+        }
+        if (requestCode == IMAGE_REQUEST_THREE && resultCode == RESULT_OK && data != null) {
             Uri path3 = data.getData();
             try {
                 bitmapImage3 = MediaStore.Images.Media.getBitmap(getContentResolver(), path3);
@@ -318,7 +369,7 @@ public class AddProductToGetLoan extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        if (requestCode == IMAGE_REQUEST_FOUR && resultCode == RESULT_OK && data != null){
+        if (requestCode == IMAGE_REQUEST_FOUR && resultCode == RESULT_OK && data != null) {
             Uri path4 = data.getData();
             try {
                 bitmapImage4 = MediaStore.Images.Media.getBitmap(getContentResolver(), path4);
@@ -327,7 +378,7 @@ public class AddProductToGetLoan extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        if (requestCode == IMAGE_REQUEST_FIVE && resultCode == RESULT_OK && data != null){
+        if (requestCode == IMAGE_REQUEST_FIVE && resultCode == RESULT_OK && data != null) {
             Uri path5 = data.getData();
             try {
                 bitmapImage5 = MediaStore.Images.Media.getBitmap(getContentResolver(), path5);
@@ -336,7 +387,7 @@ public class AddProductToGetLoan extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        if (requestCode == IMAGE_REQUEST_SIX && resultCode == RESULT_OK && data != null){
+        if (requestCode == IMAGE_REQUEST_SIX && resultCode == RESULT_OK && data != null) {
             Uri path6 = data.getData();
             try {
                 bitmapImage6 = MediaStore.Images.Media.getBitmap(getContentResolver(), path6);

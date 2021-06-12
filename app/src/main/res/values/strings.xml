@@ -3,7 +3,7 @@
     <string name="app_slogan">Exchange It To Cash</string>
     <string name="loan">Loan</string>
     <string name="sell">Sell</string>
-    <string name="dummy_price">$100</string>
+    <string name="dummy_price">ZAR 100</string>
     <string name="send_to">Share App to Your Friends</string>
     <string name="footer_text"><link>Exchange It To Cash</link> </string>
     <string name="welcome">Welcome</string>
@@ -46,11 +46,13 @@
     <string name="upload_picture">Upload New Profile Picture</string>
     <string name="required_loan_amount_text">Asking Amount</string>
     <string name="product_year_text">Manufacturing Year</string>
+    <string name="terms_and_conditions_label">I accept Terms &amp; Conditions</string>
+    <string name="terms_and_conditions">Product Terms</string>
 
     <!--Complain Strings-->
-    <string name="complain_toolbar">Post Complain </string>
+    <string name="complain_toolbar">Submit Complain </string>
     <string name="complain_header">Product Complain</string>
-    <string name="post_product">Post</string>
+    <string name="post_product">Submit Product</string>
     <string name="product_header_product_details">Product Details</string>
     <string name="product_image_header">Product Images</string>
     <string name="product_image_text">Please upload all required six images.</string>

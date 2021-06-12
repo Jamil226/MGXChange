@@ -20,8 +20,9 @@ public class Products {
     String productCondition;
     String uploadedOn;
     String productStatus;
+    String approvedOn;
 
-    public Products(String productID, String userID, String productReference, String productPurpose, String productType, String productPrice, String serialNumber, String productYear, String productDetails, String contactNumber, String imageOne, String imageTwo, String imageThree, String imageFour, String imageFive, String productCondition, String uploadedOn, String productStatus) {
+    public Products(String productID, String userID, String productReference, String productPurpose, String productType, String productPrice, String serialNumber, String productYear, String productDetails, String contactNumber, String imageOne, String imageTwo, String imageThree, String imageFour, String imageFive, String productCondition, String uploadedOn, String productStatus, String approvedOn) {
         this.productID = productID;
         this.userID = userID;
         this.productReference = productReference;
@@ -40,6 +41,7 @@ public class Products {
         this.productCondition = productCondition;
         this.uploadedOn = uploadedOn;
         this.productStatus = productStatus;
+        this.approvedOn = approvedOn;
     }
 
     public String getProductID() {
@@ -184,5 +186,13 @@ public class Products {
 
     public void setProductStatus(String productStatus) {
         this.productStatus = productStatus;
+    }
+
+    public String getApprovedOn() {
+        return approvedOn;
+    }
+
+    public void setApprovedOn(String approvedOn) {
+        this.approvedOn = approvedOn;
     }
 }

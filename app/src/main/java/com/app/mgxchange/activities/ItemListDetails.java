@@ -17,7 +17,7 @@ public class ItemListDetails extends AppCompatActivity {
     String TAG = "ItemListDetails";
     String productID, userID;
     String fullName, email, contact;
-    String productName, productDetails, productYear, productUploadingDate, productPrice;
+    String productName, productDetails, productYear, productUploadingDate, productPrice, productApprovalDate;
     private String imgOne, imgTwo, imgThree, imgFour, imgFive;
     private String productStatus;
 
@@ -45,6 +45,7 @@ public class ItemListDetails extends AppCompatActivity {
         imgFour = getIntent().getStringExtra("image_four");
         imgFive = getIntent().getStringExtra("image_five");
         productStatus = getIntent().getStringExtra("product_status");
+        productApprovalDate = getIntent().getStringExtra("product_approval");
 
         slideModels = new ArrayList<>();
         slideModels.add(new SlideModel(imgOne, productName));
@@ -53,21 +54,17 @@ public class ItemListDetails extends AppCompatActivity {
         slideModels.add(new SlideModel(imgFour, productName));
         slideModels.add(new SlideModel(imgFive, productName));
         mBinding.ivProductImage.setImageList(slideModels, true);
-
         mBinding.tvProductName.setText(productName);
         mBinding.tvProductPrice.setText("ZAR " + productPrice);
         mBinding.tvProductDetails.setText(productDetails);
-
-//
-//        Glide.with(getApplicationContext()).load(imgOne)
-//                .placeholder(R.drawable.image_default)
-//                .into(mBinding.ivProductImage);
-
         if (productStatus.equals("1")){
-            mBinding.tvProductStatus.setText("Congratulations! Your Product Have Been Approved.");
+            mBinding.tvProductStatus.setText("Congratulations! Your Product Have Been Approved.\n\n Product Approved on : " + productApprovalDate);
         }
         else if(productStatus.equals("0")){
             mBinding.tvProductStatus.setText("Your Product Have Not Been Approved Yet. Please Wait.");
+        }
+        else if(productStatus.equals("2")){
+            mBinding.tvProductStatus.setText("Your Product Have Been Accepted By Rider. Please Wait for Admin Approval.");
         }
         else if(productStatus.equals("3")){
             mBinding.tvProductStatus.setText("Sorry! Your Product Did Not Qualified & Removed By Our Team.");

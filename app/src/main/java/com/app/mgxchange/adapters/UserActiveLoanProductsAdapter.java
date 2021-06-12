@@ -68,6 +68,7 @@ public class UserActiveLoanProductsAdapter
         String imgFour = ApiUrls.imgParentUrl + mData.get(i).getImageFour();
         String imgFive = ApiUrls.imgParentUrl + mData.get(i).getImageFive();
         String productStatus = mData.get(i).getProductStatus();
+        String productApproval = mData.get(i).getApprovedOn();
         holder.cardView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ItemListDetails.class);
             intent.putExtra("product_id", productID);
@@ -84,11 +85,10 @@ public class UserActiveLoanProductsAdapter
             intent.putExtra("image_four", imgFour);
             intent.putExtra("image_five", imgFive);
             intent.putExtra("product_status", productStatus);
+            intent.putExtra("product_approval", productApproval);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
         });
-
-
 //        Toast.makeText(context, "ID : " + id, Toast.LENGTH_SHORT).show();
     }
 

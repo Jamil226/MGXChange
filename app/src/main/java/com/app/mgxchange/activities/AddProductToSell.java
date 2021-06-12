@@ -1,6 +1,7 @@
 package com.app.mgxchange.activities;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -16,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.mgxchange.R;
@@ -96,6 +98,48 @@ public class AddProductToSell extends AppCompatActivity {
                     }
                 }
         );
+
+        mBinding.tvProductTerms.setOnClickListener(viewTvProductTermsListener -> {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(AddProductToSell.this);
+            builder.setTitle("Terms and Conditions");
+            builder.setMessage("- By accepting our offer you agree that your valuable(s) will be evaluated based on the market value of your item. \n" +
+                    "-  After item evaluation is accepted by client, MGXCHANGE will payout the agreed evaluated amount, you therefore give MGXCHANGE leverage over your valuable(s). \n" +
+                    "- You acknowledge valuable(s) is own by you and not stolen, in a situation were stolen case arises, you will provide all additional information to the relevant authority to proof ownership of the valuable(s) \n" +
+                    "- Valuable(s) sold to MGXCHANGE is liable to be reclaimed back within 24hours of sale, MGXCHANGE will require the full amount that was paid to customer plus 5% administrative fee \n" +
+                    "- MGXCHANGE is not liable for any damage that may occur during this period of storage\n" +
+                    "\n" +
+                    "This is a formal and legal agreement, please select accept to proceed. \n" +
+                    "\n" +
+                    "I have read, understood and I agree with the terms and condition.");
+            builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+                public void onClick(DialogInterface dialog, int which) {
+                    mBinding.chkProductTerms.setChecked(true);
+                    Toast.makeText(AddProductToSell.this,
+                            "Thanks for Accepting Product Terms and Conditions",
+                            Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                }
+            });
+
+            builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    mBinding.chkProductTerms.setChecked(false);
+                    Toast.makeText(AddProductToSell.this,
+                            "You are Not Agreed to our Terms and Conditions",
+                            Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                }
+            });
+
+            AlertDialog alert = builder.create();
+            alert.show();
+
+        });
 
         BitmapDrawable drawable2 = (BitmapDrawable) mBinding.ivProductImage2.getDrawable();
         bitmapImage2 = drawable2.getBitmap();
@@ -196,6 +240,10 @@ public class AddProductToSell extends AppCompatActivity {
                     .getConstantState()) {
                 Toast.makeText(AddProductToSell.this,
                         "Select Product Image One",
+                        Toast.LENGTH_SHORT).show();
+            } else if(!mBinding.chkProductTerms.isChecked()){
+                Toast.makeText(AddProductToSell.this,
+                        "Please accept Product Terms and Conditions",
                         Toast.LENGTH_SHORT).show();
             }
 //            else if (mBinding.ivProductImage2.getDrawable().getConstantState()
