@@ -1,0 +1,151 @@
+package com.app.trendize.utils;
+
+import com.app.trendize.models.ActiveLoanProductListResponse;
+import com.app.trendize.models.ActiveSellProductListResponse;
+import com.app.trendize.models.ComplainListResponse;
+import com.app.trendize.models.LoginUserResponse;
+import com.app.trendize.models.RegisterUserResponse;
+import com.app.trendize.models.UserAddLoanProductResponse;
+import com.app.trendize.models.UserAddProductComplainResponse;
+import com.app.trendize.models.UserAddSellProductResponse;
+import com.app.trendize.models.UserProfileImageResponse;
+
+import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.POST;
+
+public interface Api {
+
+    @FormUrlEncoded
+    @POST("register-user.php")
+    Call<RegisterUserResponse> registerUser(
+        @Field("firstname") String firstName,
+        @Field("lastname") String lastName,
+        @Field("method") String method,
+        @Field("contact") String contact,
+        @Field("address") String address,
+        @Field("email") String email,
+        @Field("password") String password
+    );
+
+    @FormUrlEncoded
+    @POST("login-user.php")
+    Call<LoginUserResponse> loginUser(
+            @Field("email") String email,
+            @Field("password") String password
+    );
+
+    @FormUrlEncoded
+    @POST("fetch-loan-products-active-user.php")
+    Call<ActiveLoanProductListResponse> getLoanProductList(
+            @Field("userid") String userID
+    );
+
+    @FormUrlEncoded
+    @POST("fetch-sell-products-active-user.php")
+    Call<ActiveSellProductListResponse> getSellProductList(
+            @Field("userid") String userID
+    );
+
+    @FormUrlEncoded
+    @POST("update-user-profile-image.php")
+    Call<UserProfileImageResponse> updateUserImage(
+            @Field("userid") String userID,
+            @Field("encoded_image") String encodedImage
+    );
+
+    @FormUrlEncoded
+    @POST("add-sell-product-user.php")
+    Call<UserAddSellProductResponse> addSellProduct(
+            @Field("user_id") String userID,
+            @Field("product_name") String productName,
+            @Field("product_year") String productYear,
+            @Field("product_serial") String productSerial,
+            @Field("product_condition") String productCondition,
+            @Field("asked_amount") String askedAmount,
+            @Field("contact_number") String contactNumber,
+            @Field("product_details") String productDetails,
+            @Field("encoded_image1") String productImage1,
+            @Field("encoded_image2") String productImage2,
+            @Field("encoded_image3") String productImage3,
+            @Field("encoded_image4") String productImage4,
+            @Field("encoded_image5") String productImage5,
+            @Field("encoded_image6") String productImage6
+
+    );
+
+    @FormUrlEncoded
+    @POST("add-loan-product-user.php")
+    Call<UserAddLoanProductResponse> addLoanProduct(
+            @Field("user_id") String userID,
+            @Field("product_name") String productName,
+            @Field("product_year") String productYear,
+            @Field("product_serial") String productSerial,
+            @Field("product_condition") String productCondition,
+            @Field("asked_amount") String askedAmount,
+            @Field("contact_number") String contactNumber,
+            @Field("product_details") String productDetails,
+            @Field("encoded_image1") String productImage1,
+            @Field("encoded_image2") String productImage2,
+            @Field("encoded_image3") String productImage3,
+            @Field("encoded_image4") String productImage4,
+            @Field("encoded_image5") String productImage5,
+            @Field("encoded_image6") String productImage6
+    );
+
+    @FormUrlEncoded
+    @POST("add-product-complain-user.php")
+    Call<UserAddProductComplainResponse> addProductComplain(
+            @Field("user_id") String userID,
+            @Field("product_name") String productName,
+            @Field("product_serial") String productSerial,
+            @Field("product_year") String productYear,
+            @Field("contact_number") String contactNumber,
+            @Field("product_details") String productDetails,
+            @Field("complain_message") String complainMessage
+
+    );
+
+    @FormUrlEncoded
+    @POST("complain-list-user.php")
+    Call<ComplainListResponse> getComplainList(
+            @Field("user_id") String userID
+    );
+
+//    @GET("fetch-loan-products-active.php")
+//    Call<ActiveLoanProductListResponse> fetchAllActiveLoanProducts();
+//
+//
+//    @FormUrlEncoded
+//    @POST("login-admin.php")
+//    Call<LoginAdminResponse> loginAdmin(
+//            @Field("email") String email,
+//            @Field("password") String password
+//    );
+//
+//    @GET("fetch-users.php")
+//    Call<UserListResponse> fetchAllUsers();
+//
+//    @GET("complain-list-admin.php")
+//    Call<ComplainListResponse> fetchAllComplains();
+//
+
+//    @GET("fetch-sell-products-inactive.php")
+//    Call<InActiveSellProductListResponse> fetchAllInActiveSellProducts();
+//
+//    @GET("fetch-loan-products-inactive.php")
+//    Call<InActiveLoanProductListResponse> fetchAllInActiveLoanProducts();
+//
+//    @FormUrlEncoded
+//    @POST("delete-loan-product.php")
+//    Call<DeleteProductResponse> deleteLoanProduct(
+//            @Field("id") String productID
+//    );
+//
+//    @FormUrlEncoded
+//    @POST("delete-sell-product.php")
+//    Call<DeleteProductResponse> deleteSellProduct(
+//            @Field("id") String productID
+//    );
+}

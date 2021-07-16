@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">MG XChange</string>
-    <string name="app_slogan">Exchange It To Cash</string>
+    <string name="app_name">Trendize</string>
+    <string name="app_slogan">Buy All Products at Wholesale Rate in Sahiwal</string>
     <string name="loan">Loan</string>
     <string name="sell">Sell</string>
-    <string name="dummy_price">ZAR 100</string>
+    <string name="dummy_price">Rs. 100</string>
     <string name="send_to">Share App to Your Friends</string>
     <string name="footer_text"><link>Exchange It To Cash</link> </string>
     <string name="welcome">Welcome</string>
@@ -48,6 +48,7 @@
     <string name="product_year_text">Manufacturing Year</string>
     <string name="terms_and_conditions_label">I accept Terms &amp; Conditions</string>
     <string name="terms_and_conditions">Product Terms</string>
+    <string name="privacy_policy">Privacy Policy</string>
 
     <!--Complain Strings-->
     <string name="complain_toolbar">Submit Complain </string>

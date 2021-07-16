@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.app.mgxchange">
+    package="com.app.trendize">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -23,31 +23,30 @@
         android:theme="@style/Theme.MGXChange"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
-        <activity android:name=".activities.UserUpdateProfile" />
-        <activity android:name=".activities.ItemListDetails" />
-        <activity android:name=".activities.ComplainListDetails" />
-        <activity android:name=".activities.ComplainList" />
-        <activity android:name=".activities.AddProductToSell" />
-        <activity android:name=".activities.ItemsList" />
-        <activity android:name=".activities.DetailedUserProfile" />
-        <activity android:name=".activities.SellProduct" />
-        <activity android:name=".activities.AddProductToGetLoan" />
-        <activity android:name=".activities.LoanOrSellSelection" />
-        <activity android:name=".activities.AddComplain" />
-        <activity android:name=".activities.Welcome" />
-        <activity android:name=".activities.SplashScreen">
+        <activity android:name="com.app.trendize.activities.UserUpdateProfile" />
+        <activity android:name="com.app.trendize.activities.ItemListDetails" />
+        <activity android:name="com.app.trendize.activities.ComplainListDetails" />
+        <activity android:name="com.app.trendize.activities.ComplainList" />
+        <activity android:name="com.app.trendize.activities.AddProductToSell" />
+        <activity android:name="com.app.trendize.activities.ItemsList" />
+        <activity android:name="com.app.trendize.activities.DetailedUserProfile" />
+        <activity android:name="com.app.trendize.activities.AddProductToGetLoan" />
+        <activity android:name="com.app.trendize.activities.LoanOrSellSelection" />
+        <activity android:name="com.app.trendize.activities.AddComplain" />
+        <activity android:name="com.app.trendize.activities.Welcome" />
+        <activity android:name="com.app.trendize.activities.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.ForgetPassword" />
-        <activity android:name=".activities.UserSignUp" />
-        <activity android:name=".activities.UserLogin" />
-        <activity android:name=".activities.PrivacyPolicy" />
+        <activity android:name="com.app.trendize.activities.ForgetPassword" />
+        <activity android:name="com.app.trendize.activities.UserSignUp" />
+        <activity android:name="com.app.trendize.activities.UserLogin" />
+        <activity android:name="com.app.trendize.activities.PrivacyPolicy" />
         <activity
-            android:name=".activities.Dashboard"
+            android:name="com.app.trendize.activities.Dashboard"
             android:label="@string/title_activity_dashboard" />
     </application>
 
